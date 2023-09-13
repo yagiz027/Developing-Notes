@@ -1,0 +1,16 @@
+git status=> git durumunu gösterir
+
+git init=> git ekler
+
+ls -la => gizli klasörleri gösterir.
+
+git add=> commit edilmesini veya üzerinde farklı git işlemleri yapılmasını istediğimiz dosyaların .git tarafından track'lenmesini (takip edilmesini) sağlar. Bu komuut yazılmadan içerisinde değişiklik yapılmış olan ve ilgili repoya kaydetmek istediğimiz dosyaları commit edemeyiz. 
+
+git commit -m=> tracking e eklenmiş dosyların commit edilmesini sağlayan komut.
+
+commit 23b66c92cd1589d8b7c20046ee7e15578c6b2ff1 (HEAD -> master) => İlgili değişikliklerin veya eklenmelerin commit edildiğini gösteren komut satırı. Burada radnom ataanan sayılar ve karakterler bir hashCode'u temsil eder. Bu hashCode sayesinde ilgili commit'e geri dönüş sağlayabilir, yaptığımız değişiklikleri geri alabiliriz. 
+
+git add . => İlgili klasör içerisindeki değişiklik yapılan veya yeni oluşturulan tüm dosyaları git'e eklememizi sağlar. 
+
+git add -a => üzerinde değişiklik yapılan tüm dosyaların git'e eklememizi sağlar. 
+
