@@ -14,3 +14,6 @@ git add . => İlgili klasör içerisindeki değişiklik yapılan veya yeni oluş
 
 git add -a => üzerinde değişiklik yapılan tüm dosyaların git'e eklememizi sağlar. 
 
+gitignore => repository'e eklemek istemediğimiz değişiklikleri yani commit etmek istemedğimiz dosyaları tanımlar. Bu dosyalar'ı commit edilecek olan ilgili klasör içerisinde .gitignore adlı dosyanın içerisinde belirtmemiz gerekir. Aksi durumda .git bu dosyaları indexlemediğimiz yani track'lemediğimiz için commit yapmamıza izin vermez. 
+
+
