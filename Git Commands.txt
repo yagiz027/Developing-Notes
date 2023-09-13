@@ -16,4 +16,19 @@ git add -a => üzerinde değişiklik yapılan tüm dosyaların git'e eklememizi 
 
 gitignore => repository'e eklemek istemediğimiz değişiklikleri yani commit etmek istemedğimiz dosyaları tanımlar. Bu dosyalar'ı commit edilecek olan ilgili klasör içerisinde .gitignore adlı dosyanın içerisinde belirtmemiz gerekir. Aksi durumda .git bu dosyaları indexlemediğimiz yani track'lemediğimiz için commit yapmamıza izin vermez. 
 
+Branch => Branch'i bir örnekle tanımlamak gerekirse büyük yazılım projelerinde çalışan birden çok geliştirici için .git ortamı sağlayan ve her branch içerisinde geliştiricilerin kendi commit log'larının ve gitignore konfigürasyonlarının olduğu bir geliştirme otamı sağlar diyebiliriz.
+Böylece her geliştirici kendi commit ekosisteminde çalışarak geliştirdikleri yeni özellikleri projeye eklemenilere olanak sağlar. Böylece geliştirici bir yerde hata yapıp daha önce commit etmiş olduğu kodu geri getirmek istediğinde kendi branch'i üzerinden bunu geliştirerek main branch üzerinde
+olası herhangi bir bozulmaya izin vermemiş olur. Daha sonrasında ise oluşturulan branch'ler main branch ile merge edilerek çalıştırılabilir.  
+
+git branch <branch_name> => Güncel kullanılan branch'leri gösterir.
+
+_HEAD => git içerisinde hangi konumda olduğumuzu yani hangi branch'de çalıştığımızı gösterir.
+
+git switch <branch_name> => Mevcut kullanılan branch'den farklı bir branch'e geçmek için kullanılır. 
+
+git merge <branch_name> => Yapılan commitleri birleştirmeye yarayan komuttur. Eğer main'e farklı bir branch'i eklemek istiyorsak main branch'inde bulunmamız ve bu komutu kullanarak ekelemk istediğimiz <branch_name>'i girmemmiz gerekir. 
+
+
+
+
 

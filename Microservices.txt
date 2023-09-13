@@ -13,7 +13,6 @@ Software Load Balancer(Yazılım yük dengeliyici)=>
 	  Load balancing uygulanan sistemlerde ağ trafiği güvenlik ve performans açısından sadece sağlıklı sunuculara iletilir. Bu nedenle sunucu seçiminde bir kontrol 	yapılır, kontrolden geçemeyen sunucu havuzdan kaldırılır ve kontrole cevap verene kadar bu sunucuya trafik verilmez.
 
 
-
 Service Discovery=>
 	 Bir network'deki aygıtları ve service'leri otomatik olarak algılama işlemidir. Service discovery protocol (SDP), kaynakları tanımlayarak ağların algılanmasını  	sağlayan bir ağ standardıdır. Geleneksel olarak service discovery, bluetooth özellikli bir yazıcı veya sunucu gibi uyumlu kaynaklar sunulan kullanıcıların 	configuration çabalarını azaltmaya yardımcı olur.
 

@@ -7,9 +7,6 @@ API Nedir?
 	Uygulama programlama arabirimi (API), diğer yazılım sistemleriyle iletişim kurmak için uymanız gereken kuralları tanımlar.
 
 Web API:
-Web'deki istemciler ile kaynaklar arasındaki bir ağ geçidine verilen isim olarak düşünebilirsiz.
-
-İstemciler (Clients) 
-	Web'deki 
+	Web'deki istemciler ile kaynaklar arasındaki bir ağ geçidine verilen ortak isim olarak düşünebilirsiz.
 
 
