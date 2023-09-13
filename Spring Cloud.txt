@@ -1,0 +1,165 @@
+Spring Cloud=>
+	- Spring Cloud, geliştiricilerin dağıtılmış sistemlerdeki bazı ortak kalıpları hızlı bir şekilde oluşturmaları için araçlar sağlar.
+	- Spring CLoud, Spring Framework'de RAD(Rapid Application Development) yani hızlı uygulama geliştirme özelliğini sağlayan bir Spring modülüdür.
+	- Spring Cloud Framework'un yardımıyla bulut tabanlı uygulamaları hızlı bir şekilde geliştirebiliriz. 
+	
+
+	Neden Spring Cloud Kullanılır=>
+		Spring Cloud Framework, geliştiricilere hızlı ve güçlü bir şekilde bulut(cloud) uygulaması oluşturmaları için araçlar sağlar. Ayrıca micro-service 		tabanlı uygulamalar geliştirmemize de olanak sağlar. Bir geliştirici Spring Cloud'u kullanarak tasarım modellerini (desing patterns) uygulayan 			hizmetleri ve uygulamaları hızlı bir şekilde geliştirebilir. Bu modeller, Bear Metal veri merkezleri, geliştiricinin dizüstü bilgisayarı ve Cloud 		Foundry gibi yönetilen platformlar da dahil olmak üzere her türlü dağıtılmış ortamda iyi çalışır.
+	
+	* Bear Metal Data Centers: Tek kiracıya ayrılmış fiziksel sunuculara verilen isimdir. 
+	* Cloud Foundry: Cloud Foundry, açık kaynaklı, çok bulutlu bir hizmet platformdur (PaaS).
+
+	Spring Cloud'un bazı özellikleri:
+		- Akıllı yönlendirme ve hizmet keşfi (Intelligent routing and service discovery)
+		- Dağıtılmış, sürümlendirilmiş yapılandırma (Distributed, Versioned configuration)
+		- Service-to-Service calls
+		- Load Balancing
+		- Circuit Breakers
+		- Global Locks 
+		- Leadership election and cluster state
+		- Dağıtık mesajlaşma 
+	
+
+	Intelligent Rounting And Service Discovery
+	
+		- Spring Cloud'da bir mikro hizmet oluştururken, ilk iki temel mikro hizmetle ilgilenmeye yönelik birincil bir endişe vardır: configuration server ve 		  discovery server.
+	
+	Service-To-Service Calls:
+	
+		"Bir mikro hizmetin, service registry veya Eureka server aracılığıyla diğer bağımlı mikro hizmetlerle nasıl iletişim kurduğu" sürecidir. Service-to-		Service çağrılarda işlem sırası aşağıdaki gibidir:
+			- Register the Service
+			- Fetching the Registry
+			- Finding the downstream service
+			- Resolving the underlying IP adress
+			- Call the rest endpoint 
+
+	Load Balancing:
+		- Load Balancing, özellikle microservice'ler de ağ trafiğini birden fazla back end server'a(arka uç sunucusu) veya sunucu havuzuna verimli bir şekilde    		  dağıtma işlemine verilen isimdir. 
+		- Load balancing'in amacı, verimi en üst düzeye çıkarmak, yanıt süresini en aza indirmek, verimliliği artırmak ve kaynak kullanımını 				  optimize etmektir.
+		- Yük dengeleme ile birden fazla bileşenin kullanılması, yedekleme yoluyla güvenilirliği ve kullanılabilirliği artırabilir.
+	
+
+	Leadership Election:
+		- Leadership Election, uygulamanın üçüncü taraf bir sistem aracılığıyla diğer uygulamalarla çalışmasına olanak tanır. 
+		- Leadership election, kullanılabilirlikten (availability) ödün vermeden küresel durum (global state) ya da küresel düzeni (global ordering) sağlamak 		  için kullanılır.
+
+	Circuit Breakers:
+		- Yazılım geliştirmede kullanılan bir design pattern'dir. 
+		- Hataları tespit etmek ve bakım, geçici external system arızası veya beklenmedik sistem zorlukları sırasında bir arızanın sürekli olarak 			  tekrarlanmasını önleme mantığını kapsüller.
+		- Bir uygulamanın bir veritabanına saniyede 100 kez bağlandığını ve veritabanının başarısız olduğunu varsayalım. Uygulama tasarımcısı aynı hatanın 		  sürekli olarak tekrarlanmasını istemez. Ayrıca TCP bağlantısının zaman aşımını beklemeden programcı hatayı hızlı ve düzgün bir şekilde ele almak 		  ister.
+		- Genellikle Circuit Breaker, bir hizmetin kullanılabilirliğini kontrol etmek için kullanılabilir. Harici hizmet, uygulama tarafından kullanılan 		  bir veritabanı sunucusu veya web hizmeti olabilir
+
+	Global Locks: 
+		- Global kilitler, iki iş parçacığının aynı anda aynı kaynağa erişmemesini sağlamak için kullanılır.
+		- Programcı bu durumu ortadan kaldırmak için kilit(lock) adı verilen bir mekanizma kullanır. 
+		- Her iş parçacığı önce kilidi alır, kaynaklar üzerinde çalışır ve diğer iş parçacığı için kilidi serbest bırakır
+
+	Distributed, Versioned configuration:
+		- Dağıtılmış yapılandırma, tüm microservice'lerin örneklerini yapılandırmaktadır. 
+		- Dağıtılmış bir sistemde haricileştirilmiş yapılandırma için istemci tarafı desteği sağlar.
+		- Dağıtılmış konfigürasyonlarla, tüm ortamdaki uygulamaların harici özelliklerini yönetmek için merkezi bir yere sahip oluruz.
+
+	Distributed Messaging:
+		- Dağıtılmış mesajlaşma sistemi güvenilirlik, ölçeklenebilirlik ve kalıcılık avantajı sağlar.
+		- Mesajlaşma modeli Publish-Subscribe (Pub-Sub) modelini takip eder.
+		- Pub-Sub modelinde mesajı gönderene publisher, mesajı alan kişiye ise subscribe denir. 
+		- Apache Kafka ve RabbitMQ popüler yüksek verimli mesajlaşma sistemleridir. (Message Brokers)
+
+	Spring Cloud'daki bileşenler:
+
+		- Configuration
+		- Service Discovery
+		- Circuit Breakers
+		- Routing And Messaging
+		- API Gateway
+		- Tracing
+		- CI Pipeline And Testing
+
+
+	Configuration:
+		- Spring cloud configuration bileşenleri, dağıtılmış bir sistemde haricileştirilmiş yapılandırma için server-side(sunucu tarafı) ve client-side(istemci 		  tarafı) desteği sağlar. 
+		- Tüm ortamlardaki uygulamalar için harici özellikleri yapılandırma sunucusuyla yönetebiliriz.
+		- Spring Cloud yapılandırma sunucusu Git, SVN (Apache Subversion), dosya sistemi ve Vault to Store yapılandırmasını kullanabilir.
+		- Yapılandırma istemcileri (mikro hizmet uygulaması), başlangıçta yapılandırma istemcisini sunucudan alır.
+
+	Service Discovery:
+		- Service discovery, ağ üzerinden cihazların ve servislerin otomatik olarak tespit edilmesidir. Başka bir değişle, Service discovery bir uygulama ile 		  microservice'lerin dağıtılmış ortamda nasıl bağlantı kurduğudur.
+		- Service discovery uygulamaları şunları içerir:
+			-> Adresin genel görünümünü koruyan central server (merkezi sunucu). 
+			-> Central server'a bağlanan ve adresi güncelleyip alabilen istemciler(clients).
+
+		- Burada iki farklı discovery pattern bulunmaktadır: 
+			-> Server-side discovery 
+			-> Client-side discovery
+
+		Client-side discovery: 
+			-> Client-side discovery'de istemciler kullanılabilir service'lerin (hizmetlerin) ağ konumunu belirlemekle yükümlüdür.   
+			-> İstemci kullanılabilir hizmeti seçmek ve istek(request) yapabilmek için load balancing algoritmasını kullanır.
+			-> Netflix OSS, client-side discovery pattern'e bir örnektir. 
+		
+		Server-side discovery:
+			-> Server-side discovery'de, istemci load balancer aracılığıyla bir service'e(hizmete) HTTP isteğinde (request) bulunur. 
+			-> Load balancer, service registry (hizmet kayıt defteri) ile baplantı kurar ve isteği kullanılabilir bir hizmet örneğine yönlendirir.
+			-> Client-side discovery'e benzer olarak, service instances (hizmet örnekleri) service regitry (hizmet hayıt defteri) tarafından kaydedilir ve 			   kayıttan çıkarılır. 
+			-> AWS ELB (Elastic Load Balancer), server-side discovery'e güzel bir örnektir. 
+			-> ELB internetten gelen dış trafiği dengeler.
+
+	Circuit Breakers (Hystirx): 
+		- Netflix tarafından geliştirilmiştir.
+		- Circuit breakers pattern'nini implemente eder.
+		- Circuit Breakers, circuit'ın ne zaman açılıp kapanacağını hata durumunda ne yapılacağını hesaplar.
+		- Bir noktada, tüm service'ler hata verdiğinde circuit breaker bu hataları incelikle ele alır. 
+		- Circuit Breaker'ların 3 farklı state'i (durumu) bulunmaktadır: 
+			-> OPEN
+			-> CLOSED
+			-> HALF-OPEN 
+		
+			* CLOSED STATE: Her şey normal olduğunda devre kesiciler(circuit breakers) kapalı kalır ve tüm talepler aşağıda gösterildiği gibi servislere 			  iletilir. Arıza sayısı eşiğin üzerine çıkarsa devre kesici devreye girer ve açık duruma geçer.
+
+			* OPEN STATE: Bu durumda devre kesici, service'leri çağırmadan hemen bir hata verir. Devre kesiciler, bir zaman aşımı süresi dolduktan sonra 			  yarı açık duruma geçer. Genellikle zaman aşımının belirleneceği bir izleme sistemine sahip olacaktır.
+
+			* HALF-OPEN STATE: Bu durumda devre kesici, Microservice'den gelen sınırlı sayıda isteğin doğrudan geçiş yapmasına ve işlemi başlatmasına izin 			  verir. İstekler başarılı olursa devre kesici kapalı duruma geçecektir. Ancak istekler başarısız olmaya devam ederse Açık duruma geri döner.
+			
+	Routing And Messaging: 
+		- Cloud application birçok microservice'den oluştuğu için iletişim kritik olacaktır. 
+		- Spring Cloud, HTTP request'leri veya mesaj yoluyla iletişimi desteklemektedir.
+		- Routing, Netflix Ribbon ve Open Feign gibi routing API'leri kullanırken, mesajlaşma (messaging) yönteminde ise Kafka, RabbitMQ gibi API'ler 			  kullanılır.
+
+	API Gateway (API Ağ Geçidi): 
+ 		- API Ağ Geçidi, API isteğini (requests) (harici veya dahili) hizmetleri bağlamak için yönlendirmemize olanak tanır.
+		- Ayrıca Spring MVC'nin üstünde bir API ağ geçidi oluşturmak için bir kütüphane sağlar.
+		- Security ve monitoring gibi cross-cuttign concern'ler sağlamayı amaçlamaktadır.
+		
+		* API Gateway'in Özellikleri:
+			-> Spring framework 5, project reactor ve Spring boot 2 üzerine inşa edilmiştir. 
+			-> İstenilen herhangi bir özellikteki rotaları eşleştirebilir.
+			-> Tahminler ve filtreler rotalara özeldir.
+			-> Hystrix circuit Breaker integration.
+			-> Spring Cloud Discovery Client integration.
+			-> Predicates ve filtreleri yazmak daha kolay.
+			-> Request hızı sınırlaması.
+			-> Path yeniden yazma.
+	
+	Tracing (İzleme): 
+		- Spring Cloud'un diğer işlevselliklerinden biri de distrubuted tracing yani dağıtık izlemedir. 
+		- Tracing uygulamadan veri almaya yönelik tek bir request'dir (istektir).
+		- İzleme, çeşitli mikro hizmetlere katlanarak artan sayıda istekle sonuçlanır.
+		- İzlemeyi etkinleştirmek için Spring Cloud Sleuth kütüphanesini projemize ekleyebiliriz.
+		- Sleuth, gecikme analizi için kullanılacak olan kayıt zamanlamasından sorumludur. 
+		- Bu zamanlamayı zipkin'e aktarabiliriz. 
+		
+		* Zipkin Nedir? 
+			=> Zipkin, microservice mimarisi içerisinde gecikme problemini (latency problem) analiz etmek için özel olarak tasarlanmış bir distributed 			   tracing tool (dağıtık izleme aracı)'dur.
+			=> Giriş verilerini toplamak için kullanılan HTTP endpoint'lerini ortaya çıkarır.
+			=> Eğer uygulamımızı izlemek için bir tracing'e ihtiyaç duyuyorsak, spring-cloud-starter-zipkin dependecy'sini (bağımlığını) eklememizi 			   gerekir.	
+	
+	CI Pipeline And Testing:
+		- Spring Cloud pipeline, Jenkins ve Concourse için uygulama için otomatik olarak işlem hattı oluşturan, üzerinde düşünülmüş (kendini ilgilendiren) 		  bir işlem hattıdır. 
+		- Başarılı bir bulut yerel uygulamasına sahip olmak için çeşitli hizmetlerin oluşturulması, test edilmesi ve dağıtılması kritik öneme sahiptir.
+		- Jenkins işlem hattı, basit ve daha gelişmiş dağıtım hattını kod olarak modellemek için tasarlanmış bir araç seti sağlar.
+		- İşlem hattının (pipeline) tanımı Jenkinsfile adlı bir metin dosyasına yazılır.
+		- Pipeline'ın (İşlem hatlarını)  iki syntax'a sahiptir: Declarative ve Scripted pipeline (Bildirimli ve Komut Dosyalı). Bu sytax'lar iki parçaya 		  bölünmüştür: Steps ve Stages (Adımlar ve aşamalar). Steps (Adımlar),Jenkins sunucusuna ne yapması gerektiğini söyleyen pipeline'ın temel 			  parçalarıdır. 
+		- Stages (Aşamalar) bir boru hattının en önemli parçalarıdır. Aşamalar, ardışık düzende sonuç ekranında görüntülenen birkaç adımı mantıksal 		 	  olarak gruplandırır.
+		
+	

@@ -1,0 +1,5 @@
+@Target(ElementType.FİELD) => Oluşturulacak annotataion'ın property veya field üzerinde kullanılacağını belirtir.
+@Target(ElementType.Type) => Oluşturulacak annotataion'ın class level üzerinde kullanılacağını belirtir.
+@Target(ElementType.CONSTUCTOR) =>Constructor'lar üzerinde kullanılabilecek bir annotation olduğunu belirtir.
+@Target(ElementType.METHOD) => Method'lar üzerinde kullanılabilecek bir annotation olduğunu belirtir.
+@Target(ElementType.ANNOTATİON) => Diğer annotation'lar üzerinde kullanılabilecek bir annotation olduğunu belirtir.

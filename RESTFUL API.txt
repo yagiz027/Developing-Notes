@@ -1,0 +1,15 @@
+RestFul Apı:
+	RESTful API, iki bilgisayar sisteminin internet üzerinden güvenli bir şekilde bilgi alışverişi yapmak için kullandığı 	bir arabirimdir.
+Örneğin: aylık olarak maaş bordroları oluştururken faturalandırmayı otomatik hale getirmek ve dahili bir zaman çizelgesi 	uygulamasıyla iletişimde olmak için dahili hesap sisteminizin, verileri müşterinin bankacılık sistemiyle paylaşması
+Restful Api'ler bu iletişimi güvenli, güvenilir ve verilimli yazılım iletişim standartları çerçevesinde gerçekleştirir. 
+
+API Nedir?
+	Uygulama programlama arabirimi (API), diğer yazılım sistemleriyle iletişim kurmak için uymanız gereken kuralları tanımlar.
+
+Web API:
+Web'deki istemciler ile kaynaklar arasındaki bir ağ geçidine verilen isim olarak düşünebilirsiz.
+
+İstemciler (Clients) 
+	Web'deki 
+
+

@@ -1,0 +1,220 @@
+SQL Noktalı Virgül (Semicolon):Noktalı virgül, sunucuya yapılan aynı çağrıda birden fazla SQL ifadesinin yürütülmesine izin veren veritabanı sistemlerinde her bir SQL ifadesini ayırmanın standart yoludur.
+
+ORDER BY Several Columns Example
+
+SELECT * FROM Customers
+ORDER BY Country, CustomerName;
+
+Bu SQL sorgusu Customer'ları Country'lerine göre alfabetik olarak sıralar ancak aynı Country'e sahip iki Customer var ise CustomerName alanına bakarak sıralar.
+
+SQL SELECT TOP Clause
+	Top tümleci dödürülecek kayıt sayısını belirtmek için kullanılır.
+	Çok fazla veri içeren tablolarda kullanışlı bir fonksiyondur.
+	Bütün veritabanı sistemleri SELECT TOP Clause'u destekler ancak MYSQL LIMIT Clause'u Oracle ise FETCH FIRST n ROWS ONLY AND ROWNUM Clause'u destekler.
+
+Oracle Syntax=>
+	SELECT column_name(s)
+	FROM table_name
+	ORDER BY column_name(s)
+	FETCH FIRST number ROWS ONLY;
+
+MySQL Syntax=>
+	SELECT column_name(s)
+	FROM table_name
+	WHERE condition
+	LIMIT number;
+
+SQL/MS ACCESS Syntax=>
+	SELECT TOP number|percent column_name(s)
+	FROM table_name
+	WHERE condition;
+
+SQL TOP PERCENT Example
+	SELECT TOP 50 PERCENT * FROM Customers;
+Bu sorgu ifadesi Customers adlı tablodaki kayıtların ilk %50 sini seçer. 
+
+Oracle TOP PERCENT=>
+	SELECT * FROM Customers
+	FETCH FIRST 50 PERCENT ROWS ONLY;
+
+MIN AND MAX Functions=>
+	MIN=> Seçilen sütundaki en düşük değeri getirir.
+	MAX=> Seçilen Sütundaki en yüksek değeri getirir.
+
+The SQL LIKE Operator=>
+	LIKE operatörü tablo içerisinde sql sorgusunda belirtilen kelimeyi veya cümleciği aramya yarar.
+	LIKE operatörü ile en çok kullanılan joker karakterler => 
+	(%)=> 0, 1 veya daha fazla karaketeri temsil eder.
+	(_)=> 1 yani tekil karakteri temsil eder. 
+	
+
+	MS Access'de '%' işareti yerine '*' 
+	'_' işareti yerine de '?' kullanılır.
+
+Other Wilcard Characters in MS SQL=>
+	[]=> Parantezler içerisindeki herhangi bir karakteri temsil eder. 
+	(^)=> Parantez içerisinde olmayan herhangi bir karakteri temsil eder. 
+
+	SELECT * FROM Customers
+	WHERE City LIKE '[acs]%';
+	
+	Şehrin ilk harfinin a,c veya s olduğu tüm kayıtları seçer.
+
+	SELECT * FROM Customers
+	WHERE City LIKE '[a-f]%';
+	
+	Şehrin ilk harfinin a ile f arasındaki harflerden biri olduğu tüm kayıtları seçer.
+
+	SELECT * FROM Customers
+	WHERE City LIKE '[!acf]%';
+
+	Şehrin ilk harfinin a,c veya f olmadığı kayıtları seçer.
+
+The SQL IN Operator=> 
+	IN operatörü, bir WHERE yan tümcesinde birden çok değer belirtmenize izin verir =>
+	
+	SELECT column_name(s)
+	FROM table_name
+	WHERE column_name IN (value1, value2, ...);
+
+	IN operatörü, birden çok OR koşulu için bir kısayoldur =>
+
+	SELECT column_name(s)
+	FROM table_name
+	WHERE column_name IN (SELECT STATEMENT);
+
+The SQL BETWEEN Operator=> 
+	BETWEEN operatörü, belirli bir aralıktaki değerleri seçer. Değerler sayı, metin veya tarih olabilir.
+	BETWEEN operatörü kapsayıcıdır: başlangıç ​​ve bitiş değerleri dahildir.
+
+	SELECT * FROM Products
+	WHERE Price BETWEEN 10 AND 20;
+
+NOT BETWEEN Example=>
+	SELECT * FROM Products
+	WHERE Price NOT BETWEEN 10 AND 20;
+
+BETWEEN Dates Example=>
+	Aşağıdaki SQL deyimi, '01-Temmuz-1996' ile '31-Temmuz-1996' arasında bir OrderDate değerine sahip tüm siparişleri seçer:
+	
+	SELECT * FROM Orders
+	WHERE OrderDate BETWEEN #07/01/1996# AND #07/31/1996#;
+	 
+	Diğer bir kullanım=> 
+	
+	SELECT * FROM Orders
+	WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+
+SQL Aliases=> 
+	SQL Aliases bir tabloya veya veya bir sütuna geçici bir isim vermek için kullanılır.
+	Takma adlar genellikle sütun adlarını daha okunaklı hale getirmek için kullanılır. 
+	Takma ad yalnızca bu sorgunun süresi boyunca mevcuttur.
+	Takma ad oluşturmak için AS anahtar sözcüğü kullanılır. 
+
+	SELECT column_name AS alias_name
+	FROM table_name;
+
+Aşağıdaki SQL ifadesi, dört sütunu (Adres, Posta Kodu, Şehir ve Ülke) birleştiren "Adres" adlı bir takma ad oluşturur:
+
+	SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address
+	FROM Customers;
+
+SQL JOIN
+	JOIN yan tümcesi, aralarındaki ilgili sütunu temel alarak iki veya daha fazla tablodaki satırları birleştirmek için kullanılır.
+	
+	SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+	FROM Orders
+	INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+
+
+Different Types of SQL JOINs=>
+	(INNER) JOIN:	 Her iki tabloda da eşleşen değerlere sahip kayıtları döndürür.
+	LEFT (OUTER) JOIN: Sol tablodaki tüm kayıtları ve sağ tablodaki eşleşen kayıtları döndürür.
+	RIGHT (OUTER) JOIN:Sağ tablodaki tüm kayıtları ve sol tablodaki eşleşen kayıtları döndürür.
+	FULL (OUTER) JOIN: Sol veya sağ tabloda bir eşleşme olduğunda tüm kayıtları döndürür
+
+SQL INNER JOIN Keyword=>
+	INNER JOIN anahtar sözcüğü, her iki tabloda da eşleşen değerlere sahip kayıtları seçer.
+
+	SELECT column_name(s)
+	FROM table1
+	INNER JOIN table2
+	ON table1.column_name = table2.column_name;
+
+SQL LEFT JOIN Keyword=>
+	LEFT JOIN anahtar sözcüğü, SOL TABLODAKİ (tablo1) TÜM KAYITLARI ve SAĞ TABLODAKİ (tablo2) EŞLEŞEN KAYITLARI döndürür. Eşleşme yoksa sonuç sağ taraftan 0 kayıttır.
+
+	SELECT column_name(s)
+	FROM table1
+	LEFT JOIN table2
+	ON table1.column_name = table2.column_name;
+
+
+**Bazı veritabanlarında bu keyword LEFT OUTER JOIN Olarak da adlandırılmaktadır. 
+
+SQL RIGHT JOIN Keyword=>
+	RIGHT JOIN anahtar sözcüğü, sağ tablodaki (tablo2) tüm kayıtları ve sol tablodaki (tablo1) eşleşen kayıtları döndürür. Eşleşme yoksa sonuç sol taraftan 0 kayıttır.
+
+	SELECT column_name(s)
+	FROM table1
+	RIGHT JOIN table2
+	ON table1.column_name = table2.column_name;
+
+**Bazı veritabanlarında bu keyword RIGTH OUTER JOIN olarak da adlandırılmaktadır. 
+	
+SQL FULL OUTER JOIN Keyword=> 
+
+	FULL OUTER JOIN anahtar sözcüğü, sol (tablo1) veya sağ (tablo2) tablo kayıtlarında bir eşleşme olduğunda tüm kayıtları döndürür.
+
+	SELECT column_name(s)
+	FROM table1
+	FULL OUTER JOIN table2
+	ON table1.column_name = table2.column_name
+	WHERE condition;
+
+**Bazı veritabanlarında FULL OUTER JOIN olarak da adlandırılmaktadır. 
+**Bu keyword çok büyük veri setleri döndürme potansiyeli olan bir keyword'dür. 
+
+
+SQL Self Join=>
+	Bu yöntem normal bir birleştirmedir ancak tablo kendisiyle birleştirilir. 
+	
+	SELECT column_name(s)
+	FROM table1 T1, table1 T2
+	WHERE condition;
+
+	*T1 ve T2, aynı tablo için farklı tablo takma adlarıdır.
+
+The SQL UNION Operator=> 
+	İki veya daha fazla Select statement'ını birleştirmek için kullanılır. 
+	UNION içerisindeki her Select statement aynı sayıda sütuna sahip olmalıdır. 
+	Ayrıca sütunları benzer veri türlerine sahip olmalıdır.
+	Her Select statement'ındaki sütunların sırası da aynı olmalıdır. 
+
+	SELECT column_name(s) FROM table1
+	UNION
+	SELECT column_name(s) FROM table2;
+
+UNION işleci, varsayılan olarak yalnızca farklı değerleri seçer. Yinelenen değerlere izin vermek için UNION ALL kullanır.
+
+	SELECT column_name(s) FROM table1
+	UNION ALL
+	SELECT column_name(s) FROM table2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

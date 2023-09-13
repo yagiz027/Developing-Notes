@@ -1,0 +1,98 @@
+Apache Kafka=> Bir stream uygulamasıdır. Microservice mimarisindeki service'lerin birbirileri ile iletişim kurmasına ve gerçekleşen işlemler sonrasında eventlerin kayıt altında tutulmasına yardımcı olur.
+Open Source 2.0 lisense ile çalışır. Yani açık kaynaklıdır ve herkes tarafından kullanılabilir.
+ratentation özelliği bulunmaktadır. Yani geliştirici, kayıt altına alınan eventlerin ne kadar süreliğine kayıt altında tutulacağına karar verebilir.
+Ölçeklenebilir bir yapısı vardır. Yüzlerce sunucundan oluşan bir kafka server'ı kurulabilir.
+
+Kafka Özellikleri:
+	Fraud and anomaly detection=> web sitesindeki dolandırıcılıkları muhtemel aykırılıkları saptamak için kullanılabileceğimiz bir özellik sunar. 
+	Müşterinin yaptığı her hareketi event olarak saklayarak oluşabilecek güvenlik açıklarının önüne geçilmesine yardımcı olur. 
+	Recommendation engine=> Web sitenizdeki kullanıcılara tavsiyeler sunmak için kullanılabilir.
+	Monitoring / Metrics => Network içinde bulunan server'ları monitoring ve metric olarak yayınlayabilmenizi sağlar. 
+	Activity Tracking=> Her türlü aktiviteyi event olarak saklyabilmemizi sağlar. 
+	Integrate Systems=> Networkünüzde bulunan farklı sistemleri birbiri ile entegre edebilmemizi sağlar. 
+	Real Time Streaming 
+
+Recommendation Örnek:
+	Örneğin bir haber sitemiz olduğunu ve kullanıcıların her hareketini event olarak kaydettiğimizi var sayalım. Böylelikle kullanıcıların hangi haberleri okuduğunun bilgisini tutmuş oluruz. Bu bilgilerden yararlanarak, kullanıcıya machine learining kullanarak önermelerde bulunabilir ve ilgisini çeken haberleri önüne çıkarabiliriz.
+Apache Kafka Bilenşenleri=> 
+	-Broker
+	-Zookeeper
+	-Producer
+	-Consumer
+
+Apache Kafka Cluster=> 
+	Her kafka cluster'ı(kümesi) bir veya daha fazla brokerlar'dan oluşur. Her broker birbirine bağlı olarak çalışır. Bu brokerlar da kafkaya gönderilen mesajlar 	saklanır ve işlenir. Gönerilen verilen brokerlarda harddisk te saklanır.  Yani veri saklamak için bilgisayar hafızası kullanılmaz. 
+	
+Zookeeper=> Apache lisanslı açık kaynak kodlu bir yazılımdır. Kafka bu yazılımı tüm broker'ları yönetmesi için kullanır. 
+Producer=> Kafkaya veri yazılmasını sağlar. 
+Consumer=> Kafka dan veri okunmasını sağlar. 
+
+Kafka Replication=> Bir verinin istenilen sayıda çoğaltılmasına verilen isimdir. Yani kopyasının yapılarak çoğaltılmasına denir. Örneğin 3 farklı replication veri için 5 adet broker ımız olduğunu varsayalım. Bu brokerlardan 5.sinin hata vermesi durumda kafka 5. broker da bulunan ve kopyalanan verileri okuyarak, bu verileri diğer 4 broker a aktarır. Ancak broker sayısı kopyalanması beklenen replication sayısından az olması durumda kafka bu verileri kopyalamaz ve hata verir. Bu yüzden (Server) broker>=replication kuralına dikkat edilmesi gerekmektedir.
+
+Split Brain=> Örneğin 2 farklı broker'ın (Server) bulunduğu bir cluster'ımız var bir nedenden dolayı aralarındaki bağlantıda bir sorun çıktığını varsayalım. Bunun sonucunda iki broker'da diğer broker'ın devre dışı kaldığını düşünerek veri kopyalamaya devam ediyor. Böylece brokerlar içerisinde asenkron bir şekilde veri oluşturuyor. Sonrasında bu broker'ları tekrar senkronize bir hale getirmek istediğimizde hangi broker'daki verilerin daha güncel yani daha yeni olduğunu bilemediğimiz bir durum ortaya çıkıyor. Bu durumda en etkili çözüm Quorum adı verilen kavramdır. Quorum, bir topluluğun geçerli sayılabilmesi için bulunması gereken asgari üye sayısıdır. Böylece oluşturduğumuz cluster'lara belli bir quorum sayısı vererek aktif olması gereken asgari broker sayısını belirtmemiz ve bu sayının altında olunması durumda ise sistemin durdurulmasını sağlamamız gerekir. Bu sayıyı hesaplamanın yolu ise broker (server) sayısını 2 ye bölüp çıkan sayıya 1 eklediğimiz de asgari broker sayısını elde etmiş oluruz. Örneğin: 3 broker'ı olan bir cluster için quorum sayısı 2'dir. Yani aktif olarak çalışan 2 broker olduğu sürece sistem çalışmaya devam edecektir.
+
+
+Apache Kafka Producer=>
+	Kafta broker'lara veri yazmak için TOPIC'leri kullanır. Her broker bir topic'den oluşur ve bu topic'ler de bir partition'dan oluşur.
+	Partition=> şletim sistemleri (OS'ler) ve dosya sistemleri tarafından ayrı bir birim olarak ele alınan bir sabit diskin mantıksal bir bölümüdür.
+	Yani topic dediğimiz şey partition'lar dan oluşan bir yapıdır. Bu partition'ların sayısı geliştirici tarafından belirlenir. 
+	Burada iki farklı depolama yöntemi mecvuttur;
+		-Zaman bazlı
+		-Depolama alanı bazlı
+
+	Zaman bazlı yöntemde=>
+		Partition içerisindeki veriler sonsuza kadar burada saklanmaz. Kafka default olarak bunu 7 gün ile sınırlandırmıştır. Bu süre tabi ki geliştirici 	tarafından değiştirilebilir. Bu süreye ulaşan topic içerisindeki veriler sırasıyla partition'dan silinmeye başlar. 
+	
+	Depolama bazlı yöntemde=> 
+		Bu yöntemde ise broker a belli bir depolama limiti verilir (örn 100gb). Bu limite ulaşan broker dan veriler sırasıyla silinmeye başlanır. Pek 		öngörülebilir bir yöntem olmadığı için çok fazla tercih edilmez.
+
+	Her partiton a üzerindeki veriyi okuyabilmek için bir offset tanımlanır. Bu offset partition üzerinde sırasıyla gezerek her bir veriyi okumaktadır. 
+
+	Neden Partition Kullanırız?
+		-Aggregation yapabilmemizi sağlar. 
+		-Verilerin sıralı bir şekilde bir toplanmasına yardımcı olur.(sorting - Event sourcing) 
+		-Verilerin daha hızlı okunmasına yardımcı olur. (parallelism) 
+		-Verileri daha verimli şekilde saklamak (efficiency) 
+
+	Partition Record Key=>
+		Partition'lara atadığımız record key sayesinde gelen verinin hangi partition'a yazılmasını istediğimizi belirtebiliriz. Eğer bu key i kullanmazsak 	Kafka, default olarak "Round Robin" adında bir yöntemi uygular. Bu yöntem gelen verileri sırasıyla, partition numaralarını baz alarak topic içerisine gönderir.
+	
+	Aggregation=> Eğer record key tanımlaması yapıp, key olarak da category verirsek, giden veriler aynı category de olan mesajlar partition'ın category türüne 	göre yazılır.
+	
+	Sorting - Event Sourcing=> 
+		Partition'lara atadığımız record key'e customerId verirsek, bu durumda her customer ın yapıtığı işlemleri sırasıyla partitionlar üzerinde tutarak 	sorting işlemi gerçekleştirmiş oluruz.
+
+	Partition kullanarak büyük boyutları verileri istediğimiz şekilde saklayabiliriz.
+
+	Partitions Replications=> 
+		Broker'lar da tutulan topic'ler de bulunan partititon'lar'ın replication değerinin arttırılması halinde, Kafka her partition'ı replication sayısı 	kadarınca arttırır. Burada replication yani kopyalama işlemi leader partition referans alınarak gerçekleştirilir. Leader partition kopyası çıkarılacak 	partition a verilen isimdir. 
+
+	Leader Partition Election=>
+		Veriler brokerlar da her zaman bu leader partition a yazılır. Bir nedenden dolayı leader partition'ın çökmesi durumda Kafka, kopyası bulunan bir 	partition'ı leader olarak seçer. Buna leader partition election ismi verilir.
+
+	Kafka'ya veri yazılımı 3 safhadan oluşmaktadır=> 
+		-Kafkaya veri göndermek 
+		-Verinin leader partition'a ulaşıp saklanması 2
+		-Leader partition'ın bu veriyi diğer kopya (replication) partition'lara aktarması ve tam senkronlama denilen duruma ulaşılması
+
+	Producer Acknowledgment=>
+		Yukarıda belirtilen safhaların hangilerinin bitmesini veya tasdik edilmesini beklemek istediğimizi belirttiğimiz aşamadır.
+		acks=0 => Bu en hızlı ve riskli olandır. Veriler kafkaya ulaşır ve cevap beklenmeden devam edilerek bir sonraki veri de gönderilir. 
+		acks=1 => Bu orta hıza ve riske sahip olandır. Veriler kafkaya ulaşır ve leader partition a yazılana kadar beklenir. 
+		acks=all (-1) Bu en yavaş ancak en risksiz olanıdır. tüm safhalar tamamlandıktan sonra veri yazılmaya devam edilir. 
+
+Apache Kafka Consumer=> 
+	Kafka'dan gönderilen verileri okumak için kullanılır. 
+	Bu işlem sırasıyla=>
+		-Event oku --> Offset 0
+		-Okunan event ile ilgili işlemi yap
+		-Bu event ile ilgili işlemlerin bittiğini doğrula (Commit et)
+		-Sonrasında ise Kafka otomatik olarak okunacak diğer offset'i 1 yapar.
+	
+	Kafka Veri Okuma Stratejileri=>
+		At Most Once=> Event olarak consumer ile alınan verinin alınıp bir kez okunup anında commit edilmesi işlemine denir. Bu durumda even olarak alınan ve 	bu verinin işlenmesi sırasında bir sorun ile karşılaşılması durumda Kafka otomatik olarak offset i diğer event'in bulunduğu offset geçer ve önceki event'in 	tekrar okunabilmesi olanaksız hale gelir. Burada mesajınızın kaybolma riski büyüktür.
+		
+		At Least Once=> Burada ise veri okunur, işlemleri geçekleştirilir ve son olarak veri tabanına kaydedildikten sonra commit işlemi yapılır. Burada işlemi 	yaparken bir hata oluşması durumunda okuyucu tekrar başladığında yine aynı mesajı okuyacaktır. Bu yöntem en çok tercih edilen yöntemdir ve mesajınızın kaybolma 	riski düşüktür.
+		Exactly Once=> Burada mesaj okunur okunmaz bir transaction başlatılır. Bu transaction işlemi sadece bir kere yapmakta, transaction içinde önceden 	yapılan işlemler tekrarlanmıyor. Mesaj gitse bile halen bu transaction içerisinde olduğu için kaybolmuyor. Bu yöntemin performansa büyük etkisi vardır ve 	gerçekten gerekli olduğu zamanlar kullanılması gerekir. 
+
+	

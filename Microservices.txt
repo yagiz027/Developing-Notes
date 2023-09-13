@@ -1,0 +1,31 @@
+Software Load Balancer(Yazılım yük dengeliyici)=> 
+	 Yük dengeleme, gelen ağ trafiğini bir sunucu grubu veya sunucu havuzu olarak adlandırılan sunucular arasında paylaştırma işlemidir. Paylaştırma işlemi eşit 	olabileceği gibi belli bir kurala göre gerçekleştirilebilir. Yük dengeleme işlemi ile web uygulaması, web sitesi, veri tabanı vb. hizmetlerin performans ve 	güvenirliliği arttırılır. Hem uygulama, hemde veritabanı sunucuları arası dengeleme işlemini gerçekleştiren sistemler “load balancer” olarak adlandırılır. Load 	balancer’lar ile HTTP, HTTPS, TCP ve UDP olmak üzere 4 temel trafik türü için dengeleme kuralları oluşturulabilmektedir.
+
+	 Yük dengeleyici, sunucuya gelen istemci isteklerini hız ve kapasite bakımından en iyi performansı sağlayacak şekilde sunuculara yönlendirip trafiğin ana 	sunucuda yoğunlaşmasını engelleyecek şekilde müdahale eden bir trafik polisi gibi düşünülebilir.Bir sunucunun kapanması durumunda , yük dengeleyici trafiği 	çevrimiçi sunuculara yönlendirir. Sunucu grubuna yeni bir sunucu eklenmesi durumunda, yük dengeleyici otomatik olarak yeni sunucuya istek gönderir. Bu sistemde 	çalışan bir yük dengeleyicinin görevleri aşağıdaki gibidir:
+	- İstemci isteklerini veya ağ trafiğini birden fazla sunucuya verimli bir şekilde dağıtmak
+	- Sadece aktif olan sunuculara istek göndererek güvenlik ve verimliliğin arttırılması
+	- Sunucu ekleme ve çıkarma esnekliği sunmak
+
+	Load Balancing Çalışma Prensibi=>
+	  Load balancer’lar istekleri sunuculara iletmek için iki aşamadan oluşan bir prensip uygular. İlk olarak seçilebilecek sunucuların isteklere uygun şekilde 	yanıt verebileceği teyit edilir. Devamında cevap verebilecek sunucular arasından seçim yapmak için belirlenen kural uygulanarak iletim gerçekleştirilir.
+
+	Uygunluk Kontrolleri=>
+	  Load balancing uygulanan sistemlerde ağ trafiği güvenlik ve performans açısından sadece sağlıklı sunuculara iletilir. Bu nedenle sunucu seçiminde bir kontrol 	yapılır, kontrolden geçemeyen sunucu havuzdan kaldırılır ve kontrole cevap verene kadar bu sunucuya trafik verilmez.
+
+
+
+Service Discovery=>
+	 Bir network'deki aygıtları ve service'leri otomatik olarak algılama işlemidir. Service discovery protocol (SDP), kaynakları tanımlayarak ağların algılanmasını  	sağlayan bir ağ standardıdır. Geleneksel olarak service discovery, bluetooth özellikli bir yazıcı veya sunucu gibi uyumlu kaynaklar sunulan kullanıcıların 	configuration çabalarını azaltmaya yardımcı olur.
+
+	Service Discovery, bir ağı otomatik olarak bulma yeteneğine sahiptir, böylece uzun bir yapılandırma kurulum sürecine gerek kalmaz.	
+
+	İki farklı service discovery vardır:
+	-Server-side discovery
+	-Client-side discovery
+
+
+API Gateway=>
+	 API Gateway, istemcilerle backend sunucuları / mikro servisler arasında duran bir API yönetim aracıdır.
+	 API Gateway API isteklerini alarak çeşitli kurallara göre uygun servislere yönlendiren bir ters vekil sunucusu (reverse proxy) olarak çalışır. API Gateway 	istek sınırlandırma, istatistik, kimlik doğrulama vs. çeşitli sık kullanılan işlevleri üzerine alarak asıl API sunucularınızın önünde bir üst katman oluşturur.
+
+	 API gateway’ler istemcilerden gelen API çağrılarını alıp, kendi üzerinde veya arkadaki mikro servis mimarisi içinde çeşitli filtreler ve/veya işlemlerden 	geçirip son olarak da doğru endpointlere ulaşmasını sağlar.

@@ -1,0 +1,16 @@
+Binder==>İki farklı UI arasındaki veri alışverişini sağlamak için kullanılır.
+BeanValidationBinder==> Spring annotations'larının farkında olan ve bunları iki farklı UI arasında veri alışverişi sağlamak için kullanan bir Binder(Bağlayıcı) Value Type'dır. Bu value type'ı Binder ile birlikte kullanarak veri akışını sağlayabilirsiniz==> Binder<Person> binder=new BeanValidationBinder<>(SomeClass.class)
+
+binder.bindInstanceFields(SomeClass.class)==> Bu hazır method iki farklı object in alanlarını adlarına göre eşleştirir.
+binder.readBean==>Bir entity(varlık) sınıfındaki değerleri UI alanlarındaki değerlere bağlamak için kullanılır. readBean entity(varlık) sınıfından alınan değerleri internal(dahili) bir modele kopyalar böylece update işlemi yaparken işlemi iptal ettiğinizde değerlerin üzerine yazılmasını engeller.
+
+binder.writeBean(): bu method verileri UI nesnelerinden alarak bussiness object'e aktarır. Eğer veriler içerisinde invalid yani geçersiz bir değer var ise ValidationException fırlatır. Bu nedenle bu method bir try-catch bloğu içerisinde kullanılmalıdır.
+
+binder.bindInstanceFields(this)==> Bu metod binder'ın tanımlandığı component bean'deki Field'lar ile Entity(Model)'deki alanları adılarına göre birbirine bağlar.
+
+Binder aynı zamanda veritabanına veri aktarımı yapılırken Convert edilmesi (dönüştürülmesi) gereken herhangi bir veri tipi var ise bunları kendi bünyesinde barındırdığı Converting methodlarıyla dönüştütürerek kaydetmemizi sağlar. Bu methodlardan bazıları şunlarıdır;
+	-StringToDateConverter
+	-StringToIntegerConverter
+	-DateToLongConverter
+	-DateToSqlDateConverter
+	-StringToBooleanConverter 

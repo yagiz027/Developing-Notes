@@ -1,0 +1,26 @@
+Rest Nedir?
+
+Representational State Transfer (Temsili Durum Transferi) kısaltmasıdır. 
+Web servis oluşturmak için kullanılan web servis yöntemlerinden birisidir. 
+REST programlama dilinden bağımsız olarak web servis oluşturmak için kullanılan bir yapıdır.
+
+REST, HTTP protokolüne ait HTTP yöntemlerini ve HTTP durum kodlarını kullanarak gelen isteklere XML, JSON, CSV vb. olarak cevap verir.
+REST mimarisinin en önemli özelliği SOAP için kullanımı zorunlu olan WSDL gibi bir tanımlamaya ihtiyaç duymaması ve XML haricinde istenilen biçimde veri alışverişine imkan vermesidir.
+
+REST için herhangi bir kısıtlama yoktur.
+Ancak sıklıkla kullanılan ve kalıplaşmış (best practices) kullanımlar vardır.
+
+Bunlar:
+	-endpointleri tanımlarken çoğul isimler kullanmak. örneğin /users
+	-endpointlerde uzun isimler için _ ve - kullanmak. örneğin /authorized-users veya /authorized_users
+	-endpointlerde küçük harf kullanmak
+	-http metodlarını ve durum kodlarını doğru şekilde kullanmak
+	-kaynaklar arasındaki hiyerarşiyi belirtmek için / kullanmak. örneğin /users/{id}/address
+	-büyük veriler alınırken sayfalama yapılması
+	-ssl/tls kullanmak
+	-rol tabanlı erişim kontrolleri yapmak. örneğin bir kullanıcı, yöneticinin veya başka kullanıcının verisine erişmemeli
+	-performansı arttırmak için cache kullanmak ve sürekli veritabanına gitmemek
+	-versiyonlama kullanmak. örneğin /v1 /v2 gibi. böylece değişikliklere geçiş sorunsuz olur.
+
+RestFul Nedir?
+	Restful veya Restful API, REST mimarisiyle hazırlanmış web servisleridir. 

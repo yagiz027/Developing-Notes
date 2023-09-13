@@ -1,0 +1,23 @@
+Spring Core Annotations:
+	
+@Autowired=>
+	Spring framework, otomatik dependency injection(bağımlılık eklemeyi) etkinleştirir. Başka bir deyişle, bir Spring yapılandırma dosyasındaki tüm bean bağımlılıklarını bildiren Spring container, ortak çalışan çekirdekler arasındaki ilişkileri otomatik olarak bağlayabilir. Buna Spring bean otomatik autowiring adı verilir.
+	Autowired default (varsayılan) olarak true değer döndüren bir required adlı argümana sahiptir. Bu argüman bağlanmak için uygun bir bean bulamadığında Spring'in davranışını ayarlar. Doğru olduğunda bir exception fırlatılır. Aksi durumda ise herhangi bir bağlantı yoktur.	
+
+	Autowired annotation'ı bir constructor üzerinde kullanılırsa constructor içersinde tanımlanan tüm constructor bağımsız değişkenleri zorunlu hale gelir. 
+
+@Bean=> Bir objenin bean olarak tanımlanmasını sağlar.
+
+@Qualifier=> Belirsiz durumlarda kullanmak istediğimiz bean kimliğini veya bean adını sağlamak için @Qualifier'ı @Autowired ile birlikte kullanırız.
+
+@Required=> XML aracılığıyla doldurmak istediğimiz bağımlılıkları işaretlemek için ayarlayıcı yöntemlerinde kullanılır.
+
+@Value=>Özellik değerlerinin bean'lere enjekte edilmesini sağlar. 
+
+@DependsOn=> Bu annotataion'ı, Spring'in diğer bean'leri annotated olandan önce başlatmasını sağlamak için kullanabiliriz. Genellikle bu davranış, bean'ler arasındaki açık bağımlılıklara dayalı olarak otomatik gerçekleşir. Bu annotation'ına yalnızca örtülü olan dependencies'lerde (bağımlılıklarada) ihtiyaç duyarız. Örneğin JDBC driver'ını yüklerken veya statik değer başlatırken. 
+
+@Lazy Bean'imizi Lazy olarak başlatmak istediğimizde @Lazy kullanırız. Varsayılan olarak, Spring, uygulama bağlamının başlangıcında/önyüklemesinde tüm singleton Bean'lerini eager initialization ile oluşturur.
+
+Bir Lazy bean açıkça başka bir bean tarafından referans verilene veya açıkça BeanFactory'den alınana kadar başlatılmaz.
+
+Eager İnitialization=> Eager İnitialization'da, singleton class örneği, sınıf yüklemesi sırasında oluşturulur. Eager İnitialization'ın dezavantajı, yöntemin, istemci uygulaması (client) onu kullanmıyor olsa bile oluşturulmuş olmasıdır.

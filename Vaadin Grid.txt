@@ -1,0 +1,6 @@
+Grid zengin özelliklere sahip bir Vaadin component'idir. Java API ile birlikte kullanıldığı için Vaadin grid'in bize sağladığı bazı özel özellikler mevcuttur. Bu kısımda size Vaadin grid ile yapılabilecek listeleme özelliklerini tanıtacağım. 
+Grid default olarak içerisinde bir list of bean tutar. Yani sizin veri akışını sağlamak için oluşturduğunuz nesne türünde bir listeyi içerisinde tutarak, bu objenin(bean) property'leri üzerinde işlem yapmanızı sağlar. 
+
+Örneğin bean türündeki bir listeyi kullanıcıya göstermek için aşağıdaki adımları uygulayabilirsiniz:
+
+

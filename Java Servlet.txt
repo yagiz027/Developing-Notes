@@ -1,0 +1,13 @@
+Java Servlet
+
+Java Servlet Nedir=> 
+	Java EE içerisinde yer alan Servlet sunucu (server) – istemci (client) tabanlı uygulamaların haberleşmesini yönetmek için kullanılan sınıf, arayüz ve paket topluluğudur.
+
+	Servlet sunucuya bir istek geldiğinde sırayla çalışacak metotları belirtir.
+
+	Bu metotlar Servlet yaşam döngüsü olarakta adlandırılır.
+
+	Servlet Yaşam Döngüsü=> 
+		- Servlet sunucusuna istek geldiğinde javax.servlet.Servlet arayüzünde yer alan metotlar-işlemler çalıştırılır.
+		- 
+

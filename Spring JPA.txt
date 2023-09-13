@@ -1,0 +1,7 @@
+Spring JPA=>
+
+	 Yazılımdaki nesneler ile veri kaynaklarındaki kayıtlar arası eşleştirmeyi sağlayan ORM çatılarının Java ekosistemindeki karşılığı JPA’dir.
+	 Bu çatılar, veritabanı teknolojisinden bağımsız bir şekilde uygulamamızı geliştirmemize yardımcı olurlar. Gerçekleyen birçok kütüphanesi bulunsa da, en popüleri 	olan Hibernate diğerlerinin arasından sıyrılmıştır.
+
+
+H2=> Bellekte çalışan bir SQL veritabanıdır. Performansından ve diğer SQL veritabanlarını taklit edebilmesinden dolayı yazılım geliştirme aşamasında sıkça kullanılmaktadır. 

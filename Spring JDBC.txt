@@ -1,0 +1,22 @@
+Spring JDBC
+	Spring JDBC (Java Database Connector) daki tüm sınıflar dört ayrı ana pakete ayrılmıştır. 
+	-Core:Jdbc'nin ana işlevlerini sağlayan pakettir. Bu paket içerisinde JdbcTemplate, SimpleJdbcInsert, SimpleJdbcCall and NamedParameterJdbcTemplate gibi paketler bulunur.
+		-JdbcTemplate: Jdbc kullanımını basitleştirir ve yaygın hatalardan kaçınmaya yardımcı olur. Core Jdbc iş akışını kullanarak ResultSets üzerinden yineleme başlatarak JDBC istisnalarını (exceptions) yakalar ve bunları org.springframework.dao paketinde tanımlanan genel ve daha bilgilendirici exception hiyerarşisine çevirerek SQL sorgularını veya güncellemelerini yürütür.
+		-SimpleJdbcInsert:SimpleJdbcInsert, bir tablo için kolay ekleme özellikleri sağlayan çok iş parçacıklı,yeniden kullanılabilir bir nesnedir.
+		-SimpleJdbcCall:SimpleJdbcCall, bir saklı yordama veya saklı bir işleve çağrıyı temsil eden çok iş parçacıklı,yeniden kullanılabilir bir nesnedir.
+		-NamedParameterJdbcTemplate:Bu sınıf, adlandırılmış parametreler yerine JDBC stili '?' yer tutucular yürütme zamanında yapılır. Ayrıca, bir değerler Listesini uygun sayıda yer tutucuya genişletmeye izin verir.
+
+	-Dataource: Bir veri kaynağına erişebilmek için yardımcı programsınıfları. Ayrıca, JDBC kodunu Jakarta EE kapsayıcısı dışında test etmek için çeşitli veri kaynağı uygulamalarına sahiptir.
+	-Jakarta EE: Kurumsal ve büyük ölçekli uygulamalar geliştirmek için kullanılan sınıf ve paketlerden oluşan 	kütüphaneler topluluğudur.
+	-Object: Sorguların çalıştırılmasına ve sonuçların bir iş nesnesi olarak döndürülmesine olanak tanır. Ayrıca sorgu sonuçlarını iş nesnelerinin sütunları ve özellikleri arasında eşler.
+	-Support:Core ve Object paketleri altındaki sınıflar için destek sınıfları sağlar. Örneğin SQLException çeviri desteğini sağlar. 
+
+	ResultSetExtractor Interface=> ResultSetExtractor arabirimi, veritabanından kayıtları almak için kullanılabilir. Bir ResultSet'i kabul eder ve listeyi döndürür. (Veri tabanından select sorgusu ile veri çekmek istediğimizde kullanırız.)
+
+	DriverManagerDataSource => Bu driver class sürücü sınıfı adı, bağlantı URL'si, kullanıcı adı ve parola gibi veritabanı hakkında bilgileri tutmak için kullanılır.
+
+	Mapper=> Veritabanındaki tabloda bulunan alanlar ile Entity class'ında bulunan propertyleri birbirine eşler. 
+	BeanPropertyRowMapper=> Bir row'u belirtilen eşlenmiş sınıfın yeni bir instance'ına dönüştürür. Map edilecek hedef sınıf bir top level class veya static nested class olmalı, ve varsayılan olarak bir no-arg consturctor'ı yani parametresiz bir constructor'ı bulunmalı. Column names(Veritabanındaki sütun adları) karşılık gelen property'ler için hedef sınıftaki ortak ayarlayıcılarla sütun adının eşleştirilmesi temel alınarak eşlenir. Yani veritabanın'daki sütun adlarıyla aynı adları taşıyan hedef sınıftaki property isimleri aynı olmalıdır. İsimler ya doğrudan veya kelimeleri ayrılmasına dayanan bir değişken tanımlama yöntemi olan 'camel case' yöntemi ile işlenir. 
+	DataClassRowMapper=> Bir veri sınıfı oluşturucusu olan bir hedef sınıfa (örneğin, bir Java kaydı veya bir Kotlin veri sınıfı) eşlemeniz gerekiyorsa kullanılır.
+
+

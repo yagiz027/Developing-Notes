@@ -1,0 +1,8 @@
+<html> => main html tag
+<ul> => unoredered list tag 
+<ol> => ordered list tag
+<li> => list element tag 
+<table> table tag
+<tr> => defines a table's row
+<td> => defines a table's dimension. It means table's cell
+

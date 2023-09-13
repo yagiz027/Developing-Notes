@@ -1,0 +1,72 @@
+instantiate=>örneklendirmek, somutlaştırma
+pattern=> desen
+reduces=> azaltmak
+mandatory=> zorunlu 
+explicitly=> açıkça 
+Moreover=> Dahası 
+introduces=> sunmak, tanıtmak
+equivalent=> eş değer
+ambigiuous=> belirsizlik
+behevior=> davranış
+specifying=> belirtmek 
+dependent=> bağımlı
+eagerly=> hevesle
+contain=> içermek
+aggregate=> toplama
+corresponding=> karşılık gelen
+associations=> ilişkilendirme
+blank=> blank
+predicate=> yüklem
+Semicolon=> noktalı virgül
+equivalent => Eşdeğer
+criterion=> Ölçüt/Kriter
+wildcards => Joker karakter
+conjunction => bağlaç
+represents => Temsil etmek
+asterisk => Yıldız işareti
+substitute => Yerine geçmek / Vekil
+quotation=> Alıntı yapmak / Alıntı
+above=> Üstünde / Yukarıda
+distinct => Farklı / Belirgin
+instantiate=> Örneklendirmek 
+Author=> Yazar
+workflow=> İş akışı
+simplify=> basitleştirmek
+distinc=> parçalamak
+logic=> mantık
+implicitly=> dolaylı olarak
+invoked=> Çağırmak
+simultaneous=> Eş zamanlı
+feature-rich=> zengin özellikler
+distinguishes => ayırt etmek
+contributing=Katkı
+out of box=> Alışılmışın dışında
+extensibility=> Genişletilebilirlik
+Prerequisite=> Önkoşul
+Audience=>Kitle
+allocation=> Tahis etmek, sağlamak
+robust=> güçlü
+infrastructure=> Altyapı
+computing => Bilgi işlem
+throughput=> Verim
+avoids => kaçınmak, engellemek, önlemek
+redundancy=> fazlalık, yedekleme
+reliability => güvenilirlik
+availabilit => kullanılabilirlik
+thread => iş parçacığı
+implication => etki, ima, içerme
+Circuit => devre
+Able => Hünerli, Yetenekli (Talented) 
+exponentially => üstel olarak, katlanarak, katını almak 
+recipients => Alıcılar
+statements=> ifadeler
+principal=> sorumlu, müdür
+interpretation=> tercüme etmek, yorumlamak
+credentials => Kimlik Bilgileri
+
+
+
+
+
+
+

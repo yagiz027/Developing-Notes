@@ -1,0 +1,5 @@
+XML Nedir?
+	-XML eXtensible Markup Languge (Genişletilebilir İşaretleme Dili) kısaltmasıdır.
+	-XML verileri hem insan hem de makineler tarafından anlaşılır şekilde depolamak ve farklı platformlar arasında taşımak için W3C tarafından standart olarak 	belirlenmiş, etiket tabanlı bir dildir.	
+	
+

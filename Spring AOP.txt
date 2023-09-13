@@ -1,0 +1,6 @@
+Spring AOP=>
+	Görünüş odaklı programlama (AOP) aynı zamanda modülerlik sağlması anlamında OOP'leri (Nesne tabanlı programlamayı) tamamlar. Ancak modülerliğin temel birimi bir class'dan çok görünümdür. 
+	AOP program mantığını, 'concerns' olarak adlandırılan parçalara ayırır. Program içerisindeki modüleriteyi arttırmak için cross-cutting-concerns ile birlikte kullanılır.
+
+Cross-Cutting-Concern=>
+	Tüm uygulamayı etkileyebilecek ve mümkün olduğunca kodda tek bir yerde merkezileşmesini sağlayacak bir Concern tipidir.

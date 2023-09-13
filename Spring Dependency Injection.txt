@@ -1,0 +1,30 @@
+Spring Dependency Injection:
+
+	Yapılan uygulamalar ne kadar modüler ve geliştirmeye açık ise o kadar gelişmiş bir uygulamadır. Bunun için ise uygulama içeresindeki nesneler arasındaki bağlar zayıf olmalıdır. Bir nesne veya sınıf üzerindeki değişiklik yapıldığında sınıf ile ilişkili ya da o sınıfın nesnesini kullanan tüm diğer sınıflar ve modüller bu değişiklikten etkilenmektedir. Bunun önüne geçmek için ise bu noktada Spring IOC kavramı devreye girer. Dependency injection da bu kavramın en çok kullanılan ve özelleştirilmiş kısmıdır.
+
+	Dependency Injection (DI), uygulamayı yönetmeyi ve test etmeyi kolaylaştıracak şekilde programlama kodundan bağımlılığı kaldıran bir tasarım modelidir. Dependency Injection 	programlama kodumuzu loosely copuled yani gevşek bağlı bir hale getirir.
+	Depedency Lookup (Bağımlılık Arama)=>
+			Dependency Lookup, talebin ardından kaynağı aldığımız bir yaklaşımdır. Kaynağı almanın çeşitli yolları 		olabilir;
+			-A obj=new Almpl();
+			
+			Bu şekilde kaynağı (Obj A) doğrudan new anahtar kelimesiyle alırız.
+			
+			-A obj=A.getA();
+			
+			Bu şekilde ise factory class yöntemi olan getA() ile kaynağa (obj A) ulaşırız.
+
+	
+	Dependency Lookup (Bağımlılık Arama) Problemleri=>
+
+		Bağımlılık aramada iki temel sorun vardır.
+		-Tight Coupling 
+		-Not Easy for testing 
+
+		Tight Coupling=> Dependency Lookup (Bağımlılık Arama) yaklaşımı kodun kaynağa çok sıkı bir şekilde bağlantılı 		olmasını sağlar. Eğer kaynak içerisinde bir değişiklik yapılırsa kod tarafında da büyük ölçüde değişiklik 			yapılması 	gerekir. 
+
+		Not easy for testing=>  Test edilebilirlik sorunu, bu sorun özellikle black box testing denilen kara kutu t			esti adı verilen sofware test methodu gibi methodlarda büyük sorunlar yaratabilir. 
+
+	 Dependency Injection programların bağımlılığını ortadan kaldıran bir tasarım patterni (desenidir). Böyle durumlarda 	bilgileri XML dosyası gibi harici bir kaynaktan sağlarız. Dependency Injection gerçekleştirmenin iki farklı yolu 	vardır;
+		-Setter Injection
+		-Consturctor Injection
+	

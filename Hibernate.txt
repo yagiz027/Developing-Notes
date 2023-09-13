@@ -1,0 +1,84 @@
+Hibernate
+
+	Hibernate, Java uygulamaları geliştirirken uygulamaların veritabanlarıyla etkileşimini basitleştiren bir Java framework'üdür. Açık kaynak, lightweight ORM(Object Relotaional Mapping) tool. Hibernate veri kalıcılığı için JPA'nın özelliklerini implemente eder. 
+
+ORM Tool=>
+	ORM, veri oluşturmayı, veri işlemeyi ve veri erişimini çok daha basit bir hale getiren bir hibernate tool'udur. Veritabanına depolanan veri ile program içerisinde oluşturulan nesneyi mapleyen yani eşleşleştiren bir programlama tekniğidir. ORM aracı veri tabanıyla etkileşim kurabilmek için dahili olarak JDBC API'sini kullanılır.
+
+JPA Nedir?
+	Java Persistence API (JPA), ORM araçlarına belirli işlevsellik ve standart sağlayan bir Java belirtimidir. javax.persistence paketi, JPA sınıflarını ve arabirimlerini içerir.
+
+Hibernate Framework'ün avantajları:
+	1)Open Source Ve Lightweight: Hibernate, LGPL lisansı altında açık kaynaklıdır ve hafiftir.
+	2)Hızlı Performans:Dahili olarak önbelleği yani cache bünyesinde bulunduran hibernate, tekrar tekrar kullanılacak verileri önbelleğinde tutarak kullanıcıya 	sunmakta ve programın veya web sayfasının yüklenme hızını büyük oranda arttırmaktadır. Hibernate içerisinde first level cache ve second level cache olmak üzere 	iki adet önbellek bulundurur. Bunlardan first level cache default(varsayılan) olarak etkindir.
+
+Database Independent Query(Veritabanından Bağımsız Sorgu):
+	Hibernate query language (HQL), SQL in nesne tabanlı versiyonudur. Veritabanından bağımsız sorgular üretir. Böylece veritabanına özel sorgular yazmanıza gerek kalmaz.Hibernate'den önce, yazılan sorgular veritabanına özel olduğu için proje'de veritabanı değiştirildiğinde proje içinde yazılan sorguların da değiştirilmesi gerekiyordu. 
+
+Otomatik Tablo Oluşturulması:
+	Hibernate, proje ayağa kalkarken aynı anda eğer veritabanı tarafında gereklli tablolar bulunmuyorsa bu tabloların oluşturulmasına imkan sağlar. Böylece veritabanından manuel olarak tablo oluşturmanıza gerek kalmaz. 
+
+Karmaşık Birleştirmeyi Basitleştirir:
+	Hibernate ile birden çok tablodan veri almak daha kolaydır. 
+
+Sorgu İstatistiklerini Ve Veritabanı Durumunu Sağlar:
+	Hibernate, Sorgu önbelleğini destekler ve sorgu ve veritabanı durumu hakkında istatistik sağlar.
+
+Hibernate Mimarisi:
+	Hibernate mimarisi, persistence object, session factory, transaction factory, connection factory session gibi bir çok objeyi barındırır.
+
+Hibernate mimarisi dört katmanda kategorize edilir:
+-Java uygulama katmanı
+-Hibernate framework katmanı 
+-Backhand api katmanı 
+-Database katmanı 
+
+
+Hibernate Mimarisinin Unsurları:
+
+	1)SessionFactory:
+		SessionFactory, bir oturum fabrikası ve ConnectionProvider istemcisidir. İçerisinde second level cache verileri yani isteğe bağlı olan verileri 	tutar.org.hibernate.SessionFactory interface'i Session nesnesine erişilmesini sağlayan factory method'u sağlar.	
+	2)Session:
+		Session objesi veritabanında depolanan veri ile uygulama arasında bir interface sağlar. Bu kısa ömürlü bir objedir ve JDBC bağlantsını sarar.Query, 	Transaction ve İşlem factory'sidir. first level cachce verilerini yani zorunlu verileri tutar. Session interface'i nesne için insert,update,delete methodlarını 	sağlar.
+	3)Transaction:
+		Transaction, atomik iş birimini belirtir. isteğe bağlıdır. org.hibernate.Transaction interface'i işlem yönetimi için yöntemler sağlar.
+	4)ConnectionProvider:
+		JDBC Connection'larının bir factory'sidir.Uygulamayı DriverManager veya DataSource'tan soyutlar. isteğe bağlıdır.
+	5)TransactionFactory:
+		Hibernate'in transaction factory'sidir. İsteğe bağlıdır.
+
+hbm2ddl.auto property=> @Table Annotation'nın kullanıldığı ve bir @Entity olarak tanımlanan bean'in tablosunu veritabanın'da otomatik olarak oluşturmak için kullanılan property'dir.
+
+
+@ManyToOne=> JPA (Java Persistence Annotation) package'ı içerisinde bulunan bu annatation veritabanı tarafında bulunan "1-n" bağlantıyı temsil eder. 
+
+@OneToMany=>JPA (Java Persistence Annotation) package'ı içerisinde bulunan bu annatation veritabanı tarafında bulunan "1-n"'e bağlantıyı temsil eder. 
+
+@SequenceGenerator=> Entity Class'ında tanımlanan ID alanının değerinin kaçtan başlyacağını belirtiyoruz. Bunun için name olarak verdiğimiz değeri @GeneratedValue generator içinde bildirmemiz gerekmektedir. 
+	@SequenceGenerator Özellikleri=>
+		-sequenceName=>Veritabanında oluşacak olan sequence ismini belirtir.
+		-initialValue=>Bu sequence değerinin kaçtan başlayacığını belirtir.
+
+@JoinColumn=> Hibernate ile birlikte gelen bağlantı annotation'larının hangi foreing key'e bağlanılacağını belirtir.
+
+
+Hibernate'de iki nesneyi bir birbirine bağlamak için iki yöntem bulunur bunlardan biri eager diğer ise lazy'dir. 
+
+Hibernate Mapping Türleri=>
+	Hibernate'de 2 farklı veri aktarımı için iki farklı mapleme yöntemi bulunur;
+		-Inheritence Mapping
+		-Hibernate Mapping
+
+		Inheritence Mapping Türleri;
+			-Table Per Hierarchy
+			-Table Per Concrete 
+			-Table Per Subclass
+
+		Table Per Hierarchy (Hiyerarşi Başına Tablo)=>
+		Inheritence stratejisine göre, veritabanındaki tüm hiyerarşiyi tek bir tabloya eşleyebiliriz. Burada ekstra bir sütun (Ayrımcı sütun veya 		DiscriminatorColumn) referans alınarak class'ı belirtecek şekilde oluşturulur. 
+		Yapının anlaşılması için bir örnek verilmesi veritabanında elinizde bir Employee tablonuzun oluğunu varsayalım. Bu tablonun 	ID,TYPE,NAME,SALARY,BONUS,PAY_PER_HOUR,CONRACT_DURATION olmak üzere 7 adet alanı bulunuyor. Bu yapıyı java tarafında inheritence mimarisine göre bölmemiz 	gerekirse Employee adlı bir super class'ımız ve bu class'ın inherit olduğu Regular_Employee ve Contract_Employee adlı iki adet subclass'ı bulunmakta.
+	Burada class'lar arasında veri alışverişini sağlamak ve Employee entity'sini tek bir class olarak Presenter veya View tarafında kullanabilmek için hibernate-	mapping'i bize sağlamış olduğu Table Per Hierarchy özelliğinden yararlanmamız gerekmekte. Aksi halde Employee entity'sinin değerlerine erişmek ve bunları 	değiştirip kullanabilmemiz için hem employee class'ını hem de subclass'larını ayrı ayrı create etmemiz gerekir.
+	
+
+
+	

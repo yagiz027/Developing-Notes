@@ -1,0 +1,68 @@
+Spring: Spring Framework java için geliştirilmiş, açık kaynak olan bir uygulama geliştirme framework'üdür.                                                                               
+
+Inversion Of Control (IOC): Bir sınıfı bağılılıklarından kurtaran programlama tekniği.
+
+Spring IOC: Bu özellik ise container görevini üstlenir ve uygulamanız için dependency injection desenini uygulayan bir yapıdır. Spring bize iki farklı dependency injection özelliği tanımlamaktadır:
+*Setter Injection
+*Constructor Injection
+
+Bu iki tip injection sayesinde spring bizden aldığı değerleri gerekli alanlara eşleştirerek yönetebilmeyi sağlamaktadır. 
+
+Peki Neden Kullanmalıyız??
+
+*Geliştiriciler, Jetty, Tomcat gibi Gömülü HTTP sunucularına kolayca erişebilir ve web uygulamalarını zahmetsizce kolayca test edebilir.
+*Kurulumu oldukça basittir.
+*Birtakım derleme araçları vardır. Bunlardan en tanındık olanı MAVEN repository’dir. Bu tarz araçları kullanabilmek için bizlere bir plugin sağlar ve hızlı bir şekilde entegrasyon sürecini kendisi tamamlar.
+*XML yapılandırmasına gerek yoktur.
+*Otomatik yapılandırma gibi özelliklerle Spring Boot, sizi kodlama ve gereksiz yapılandırma zahmetinden kurtarır.
+*Gömülü ve bellek içi veritabanlarıyla çok sorunsuz ve kolay bir şekilde çalışmayı sağlayan bir eklenti sağlar.
+*Bizim için bir proje taslağı oluşturur ve herhangi bir konfigürasyon problemi yaşamadan projemizi ayağa kaldırabiliriz.
+
+Spring IOC Container:
+
+IOC Container=>Proje içerisindeki nesnelerin (Objects) birleştirilmesinden, yapılandırılmasından ve somutlaştırılmasından sorumludur.
+
+IOC Container tarafından gerçekleştirilen ana görevler şunlardır:
+-Uygulama sınıfını başlatmak
+-Nesneleri yapılandırmak
+-Nesneler arasındaki bağımlılıkları bir araya getirmek.
+
+İki tip IOC Container vardır. Bunlar;
+-BeanFactory
+-ApplicationContext 
+
+BeanFactory Interface==>Bu sınıf bean'nin return edilmesinden (geriye döndürülmesinden) sorumlu olan sınıftır.
+XmlBeanFactory Class==>Bu sınıf ise BeanFactory Interface'nin uygulama sınıfıdır.
+BeanFactory metodları==>
+-getBean():ilişkili sınıfın nesnesini döndürür.
+-getBeanProvider(requiredType):Kullanılabilirlik ve benzersizlik seçenekleri de dahil olmak üzere örneklerin isteğe bağlı olarak geç alınmasına izin vererek, belirtilen bean için bir provider döndürür. requiredType bir interface veya superclass olmalı.
+-containsBean():BeanFactory içerisine parametre olarak girilen bean adına sahip bean tanımı veya harici olarak kaydedilmiş tekil örnek içeriyor mu?
+-isSingleton():Parametre olarak verilen bean singleton mı? Yani getBean("beanName") her zaman aynı örneği döndürür mü?
+-isPrototype():Parametre olarak girilen bean bir prototip mi? Yani getBean("beanName") her zaman farklı bir değer mi döndürüyor?
+-isTypeMatch(String name,Resolvable typetoMatch) throws NoSuchBeanDefinationException: Parametre olarak girilen bean adının belirtilen türle eşleşiyor mu? Yani girilen bean adı için getBean("beanName") çağrısının belirtilen hedef türüne atanabilen bir nesne döndürüp döndürmediğini kontrol eder. 
+-getType():Parametre olarak girilen bean adına göre bean türünün ne olduğunu belirtir. Yani getBean("beanName") öğesinin döndüreceği nesne türünü belirtir.
+-getAliases():Parametre olarak girilen bean adı için takma adları(aliases) döndürür. 
+
+ApplicationContext: Uygulamadaki Object instance'ları (nesne örneklerini) Spring framework'ün yönetebilmesi için depoladığımız alandır.Varsayılan olarak Spring uygulamanızda tanımladığınız nesnelerin hiç birini bilmez.  IoC container veya application context olarakta adlandırılan Spring context'in içine eklenen objeler, context tarafından ilklendirilir, yönetilir, configure edilir ve gerektiğinde çağrılır. Bu şekilde, framework'ün sunduğu yetenekleri kullanmanıza izin verir.
+
+ApplicationContext(Spring Context) nasıl oluşturulur?
+	Spring farklı gereksinimlere uygun farklı	ApplicationContext implementasyonları sunar. Tüm bu implementasyonlar ApplicationContext interface'den türemektedir. 
+	Bazı yaygın ApplicationContext implementasyonları: 
+	-AnnotationConfigApplicationContext 
+	-AnnotationConfigWebApplicaitonContext
+	-XmlWebApplicationContext
+	-FileSystemXMLApplicationContext
+	-ClassPathXmlApplicationContext
+	
+AnnotationConfigApplicationContext=> Bu sınıf (class) Spring 3.0 ile birlikte Spring ekosistemine dahil edilmiştir. Input olarak @Configuration , @Component ve JSR-330 metadata ile annotated (açıklamalı) sınıfları alır.
+
+AnnotationConfigWebApplicationContext=> Bu sınıf AnnotationConfigApplicationContext'in web tabanlı olan bir varyasyonudur.
+
+XmlWebApplicationContext=>XmlWebApplicationContext classını, XML tabanlı konfigürasyon kullandığınız web uygulamalarında kullanabilirsiniz. Aslında, bu contexti yapılandırmak yalnızca AnnotationConfigWebApplicationContext sınıfı gibidir. Yani, onu web.xml'de yapılandırabileceğiniz veya WebApplicationInitializer interface'ini implemente edebileceğiniz anlamına gelir:
+
+FileSystemXmlApplicationContext=>FileSystemXMLApplicationContext classını, dosya sisteminden veya bir URL den XML tabanlı Spring konfigürasyonunuzu yükleyeceğiniz zaman kullanabilirsiniz. Bu sınıf, ApplicationContext'i programatik olarak yüklemeniz gerektiğinde kullanışlıdır. Genel olarak, test koşum ve standalone uygulamalar bunun için olası kullanım durumlarından bazılarıdır.
+
+ClassPathXmlApplicationContext=>ClassPathXmlApplicationContext classını, classpath'inizde yer alan XML tabanlı Spring konfigürasyonunuzu yükleyeceğiniz zaman kullanabilirsiniz. Tıpkı FileSystemXMLApplicationContext gibi bu da test koşum ve standalone uygulamalar oldukça kullanışlıdır.
+
+Bean Nedir?
+	Spring context (ApplicationContext içerisine eklediğimiz object instance'larının her birine verilen isimdir. Kısaca Context içersinde yer alan her nesne bean olarak adlandırılır.

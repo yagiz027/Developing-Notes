@@ -1,0 +1,123 @@
+Spring Security=> Spring Security, kurumsal java uygulamarı geliştirmek için authentication, authorization gibi çeşitli güvenlik özelliklerini sunan bir framework'dür. 
+
+Authorization (Yetkilendirme) => 
+	- Hangi kullanıcının uygulamada hangi yetkilere sahip olduğunu belirmemizi sağlar. 
+	- Web request'lerini, methodları ve bireysel alana erişimi yetkilendirmek için kullanabiliriz.
+	- 
+Authentication (Kimlik Doğrulama)=> 
+	- Login işlemileri gibi uygulamaya erişim sağlanan işlemlerde giriş yapan kullanıcının kimliğini doğrulamamızı sağlar. 
+	- Spring Security framework'ü çok çeşitli kimlik doğrulama modellerini destekler. Bu modeller ya üçüncü taraflarca sağlanır ya da framework'ün kendisi tarafından 	  sağlanır. Spring Security tüm bu teknolojilerle entegrasyonu destekler.		
+
+Spring Security Özellikleri=>
+	- LDAP (Lightweight Directory Access Protocol) 
+	- Single sign-on 
+	- JAAS (Java Authentication and Authorization Service) LoginModule
+	- Basic Access Authentication 
+	- Digest Access Authentication
+	- Remember-me 
+	- Web Form Authentication 
+	- Authorization
+	- Software Localization
+	- HTTP Authorization 
+
+	LDAP (Lightweight Directory Access Protocol) => 
+		- Bir İnternet Protokolü üzerinden dağıtılmış dizin bilgi hizmetlerinin bakımı ve erişimi için açık bir uygulama protokolüdür.
+
+	Single sign-on => 
+		- Bu özellik, kullanıcının tek bir hesap (kullanıcı adı ve şifre) yardımıyla birden fazla uygulamaya erişmesine olanak tanır.
+
+	JAAS (Java Authentication and Authorization Service) LoginModule => 
+		- Java'da uygulanan takılabilir bir kimlik doğrulama modülüdür. 
+		- Spring Security kimlik doğrulama işlemi için bunu destekler. 
+
+	Basic Access Authentication => 
+		- Spring Security, ağ üzerinden istekte bulunurken kullanıcı adı ve parolayı sağlamak için kullanılan Temel Erişim Kimlik Doğrulamasını destekler.
+	
+	Digest Access Authentication => 
+		- Bu özellik authentication (kimlik doğrulama) işlemlerimizi Basic Acces Authentication'a göre daha güvenilir bir hale getirir.
+	 	- Ağ üzerinden hassas veriler göndermeden önce tarayıcıdan kullanıcının kimliğini onaylamasını ister.
+
+	Remember-me => 
+		- Spring Security bu özelliği HTTP cookie'lerinin yardımıyla sağlar. 
+		- Kullanıcıyı hatırlar ve kullanıcı çıkış yapana kadar aynı makineden tekrar giriş yapılmasını önler.
+
+	Web Form Authentication => 
+		- Bu özellikde, web form kullanıcı bilgilerini browser'dan toplar ve doğrular.
+		- Spring Security, web formu kimlik doğrulamasını uygulamak istediğimizde bunu destekler.
+
+	Software Localization => 
+		- Bu özellik, uygulamanın kullanıcı arayüzünü herhangi bir dilde yapmamızı sağlar.
+	
+	HTTP Authorization => 
+		- Spring, Apache Ant path veya regular expressions kullanarak web request URL'lerinin HTTP yetkilendirmesi için bu özelliği sağlar.
+
+
+	Spring Security 5.0'da Eklenen Özellikler => 
+
+		* OAuth 2.0 Login => 
+			- Bu özellik kullanıcıya GitHub veya Google'daki mevcut hesabını kullanarak uygulamaya giriş yapma olanağı sağlar.
+			- Bu özellik, OAuth 2.0 Yetkilendirme Framework'ünde belirtilen Authentication Code Grant kullanılarak uygulanır.
+
+		* Reactive Support => 
+			- Spring Security 5.0 sürümünden itibaren reactive programlama ve reactive web çalışma zamanı desteği sağlıyor ve hatta Spring WebFlux ile 			  entegre edebiliyoruz.
+
+		* Modernized Password Encoding =>
+			- Spring Security 5.0, daha modernleştirilmiş ve önceki NoOpPasswordEncoder kodlayıcının tüm sorunlarını çözen yeni Şifre kodlayıcı 				  DelegatingPasswordEncoder'ı tanıttı.
+		
+JWT (Json Web Tokens) =>JSON Web Token veya daha yaygın adıyla JWT, güvenilir bilgilerin taraflar arasında kompakt ve güvenli bir şekilde iletilmesine yönelik bir açık İnternet standardıdır (RFC 7519). Json tokens, bir json nesnesi olarak kodlanan ve private veya public olarak key/private çifti kullanılarak dijital olarak imzalanan talepleri içerir. Dijital olarak imzalandıkları için bağımsızlardır ve doğrulanabilirdirler. 
+
+JWT'ler, bellek içi rastgele belirteçler kullanan oturum yönetimine göre birçok avantaj sundukları için daha yaygın olarak yetkilendirme için kullanılsalar da bilgi alışverişi için de kullanılabilirler. Bunların en büyüğü, kimlik doğrulama mantığının AuthO vb. gibi üçüncü taraf bir sunucuya devredilmesini sağlamaktır.
+
+Bir JWT token'i 3 bölümden oluşur=>
+	-Header
+	-Payload
+	-Signature
+
+Header=> Header, JWT tokeni'nin header'ı JWT'de kullanılmış olan kriptografik operasyonların listesini tutar. Bu, imzalama tekniği, içerik türü hakkında meta veri bilgisi vb. olabilir. Header base64URL'e kodlanmış bir JSON nesnesi olarak sunulur. Geçerli bir JWT header'ı şu şekilde gözükmelidir.
+	{"alg": "HS256", "typ": "JWT"}
+
+Payload=> İçerisinde bir varlığın (genellikle kullanıcı bilgileri)  claimlerini tutmaktadır. "Claim" kelimesi bir konu hakkındaki ileri sürülen bilgi parçası anlamına gelmektedir. Burada ise kullanıcılar veya varlıklar hakkında bilgi vermek ve JWT authentication (doğrulaması) yapılırken bu bilgilere göre kullanıcının bazı işlemlere erişebilmesine olanak sağlanması yönündedir. 
+
+JWT Claim Türleri=>
+	3 çeşit claim türü vardır bunlar; 
+		- Registered
+		- public 
+		- private 
+
+		Registered Claims=>
+			- JWT'de önceden tanımlanmış claim türleridir. 
+			- Bu claim'lerin kullanımları zorunlu değildir ancak kullanıldığında yararlı olabilecek claim türleridir. 
+			- Bu claim'lere örnek olarak:
+				- iss (issuer)
+				- exp (expiration time) 
+				- sub (subject) 
+				- aud (Audience) 
+
+			* iss (İssuer) Claim => 
+				- JWT'yi düzenleyen (oluuşturan) asıl kişiyi tanımlayan claim'dir. Yani token'i kimin oluşturduğu bilgisini tutar.
+				- Bu claim'lerin işlenmesi genellikle uygulamaya özeldir. 
+				- Bu claim'in kullanımı isteğe bağlıdır. 
+
+			* exp (Expiration Time) Claim => 
+				- JWT'nin işlenmek üzere kabul edilmemesi gereken tarihi tanımlar. 
+				- Yani burada tanımlanan tarihten itibaren oluşturulan bu token kullanılamaz duruma gelir.
+ 				- Bu claim'in işlenebilmesi için mevcut yani şimdiki tarihin exp tarihinden önce olması gerekmektedir. 
+
+			* sub (Subject) Claim => 
+				- JWT'nin konusunu tanımlamaktadır.
+				- JWT'deki ifadeler genellikle konuyla ilgili ifadeler içermektedir. 	
+				- Burada tanımlanan ifadeler (subjects), ya bağlamda yerel olarak benzersiz olacak şekilde kapsamlandırılmalıdır ya da global olarak 				  benzersiz olmalıdır.
+				- Bu claim'in işlenmesi genellikle uygulamaya özeldir.
+				- sub claim'i StringOrURI içeren büyük-küçük harfe duyarlı (case-sensitive) bir dizedir. 
+				- Bu claim'in kullanımı isteğe bağlıdır. 
+			* aud (Audience) Claim =>
+				- JWT'nin kullanılacağı alıcıları (recipients) tanımlar. 
+				- JTW'yi işlemeyi amaçlayan her process'in kendisini hedef kitle talebinde bir değerle tanımlaması gerekir. 
+				- Talebi işleyen asıl kişi, bu talep mevcut olduğunda kendisini "aud" talebindeki bir değerle tanımlamıyorsa, JWT'nin reddedilmesi 				  gerekir.
+				- Genel durumlarda aud değeri, herhangi bir StringOrURI değeri içeren, büyük-küçük harfe duyarlı (case-sensitive) dizelerden oluşuan 				  bir array'dir.
+				- Özel durumlarda ise tek bir audience'ı bulunan "aud" claim'lerinin ise değeri tek bir StringOrURI değeri içeren büyük-küçük harfe 				  duyarlı bir String değer olmalıdır.
+				- Audience değerlerinin yorumlanması genellikle uygulamaya özeldir. 
+
+
+			
+

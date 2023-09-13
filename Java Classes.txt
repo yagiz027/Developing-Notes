@@ -1,0 +1,9 @@
+Abstraction Nedir?
+	Abstraction, nesne tabanlı programlamada bir sınıfın iki veya daha fazla sınıfa kalıtım vererek kalıtım verdiği sınıfların ortak özelliklerini barındırmasına verilen isimdir. Örneğin bir e ticaret sitemiz olduğunu varsayalım burada, site içerisinde satışı sağlanan birden fazla ürün çeşidi olsun. Bu ürün çeşitlerinin ortak özellikleri hepsinin bir id'si, adı, ve fıyatı olmasıdır. İşte bu özellikleri Product adı altında bir class'da toplarsak ve bu sınıftan türeyen her ürün sınıfı için (örn: ElectronicalProduct) abstraction(soyutlama) sağlamış oluruz.
+
+Abstract Classes:
+	Abstract class ise sınıflar arasında pek çok ortak özellik ve davranış bulunduğu durumlarda tasarlanan soyut sınıflardır. Kod tekrarını engelleyerek hem daha derli toplu bir görüntü sağlar hem de hata yapma riskini azaltır. Ortak bir şablon üzerinden ilerleme imkanı sunar ve bu sınıfların temel amacı da budur.Dolayısıyla, Abstract sınıflardan nesne üretimi gerçekleştirilemez. Eğer abstract tanımlı bir sınıftan nesne üretmek isterseniz Java hata (java.lang.RuntimeException: Uncompilable source code — User is abstract; cannot be instantiated) verecektir.
+
+Abstract Method:
+	-Abstract, yani soyut metot, içerisinde kod barındırmayan, yalnızca imzadan ibaret olan metotlardır.
+	-Bu metotlar alt sınıflara devredilir ve alt sınıflar Override ettikleri bu soyut metotları kendi ihtiyaçlarına göre doldururlar.

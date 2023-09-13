@@ -1,0 +1,13 @@
+Günümüz teknolojisinde neredeyse her işletme ve firma işlerini internet üzerinden yürütüyor. İnternetin hayatımıza kattığı kolaylık ve birim zamandan elde edilen verim yadsınamaz derecede fazla. 
+
+Buna rağmen yaklaşık 25-30 yıldır aktif olarak içinde bulunduğumuz internet ortamında iş yürütmenin bazı dezavantajları var. İçlerinde en önemli olanı ise güvenlik problemi. Veri ve dökümanların bir başkasının eline geçebilme riski kullanıcıların korkulu rüyası olmuş durumda. Bu bir sosyal medya hesabının hacklenmesinden büyük bir işletmenin veri kaybına uğramasına kadar  ilerleyebiliyor. 
+
+Güvenlik kaynaklı tehlikelerin önüne geçmek ve kullanıcılara daha emniyetli bir ortam sunmak için geliştirilen ’’log teknolojisi’’ gerçekleştirdiğiniz tüm eylemleri kayıt altına alan ve erişimin yalnızca yetkili kişide olduğu bir yazılım. Log kaydı sanal dünyada tıpkı bir koruyucu gibi yerini almış durumda.
+
+Logdan kısaca bahsedecek olursak birebir çeviri yaptığımızda ’’log’’ kütük ve kayıt defteri anlamlarını taşıyor. Bilişim dünyası için ise log, bilgisayarın gerçekleştirdiği her etkinliğin kayıt altına alınması  demek. Yani gerçekleştirdiğiniz tüm işlemleri denetlemenizi, kritik durumlar ve tanımlanamayan eylemleri  tespit etmenizi sağlar. Log kaydı sürekli olarak tutulur, bu sayede sistem yöneticisi gerçekleşen her harekete erişebildiği gibi olası bir siber saldırı hissettiğinde gerekli önlemleri alabilir. 
+
+Devletler sanal mecralardan yürütülen işlerin ve anlaşmaların güvenliği için log kaydı tutmayı zorunlu kılmışlardır. Ülkemizde deher kurum ve kuruluş diğer dünya ülkelerinde olduğu gibi log kaydı tutmak zorundadır. Bunun yanında işletmeler mevcut olan en az iki yıllık log kayıtlarını arşivlemek ile yükümlüdürler. 
+
+Log aynı zamanda internet hizmeti sağladığınız ağın ve modemin güvenliği için de kullanılır. İnternet hizmeti aldığınız modemin güvenliği bu mecrada iş yapan herkes için çok önemlidir. Tanımlanamayan bir ağ ve IP adresiniz üzerinden gerçekleştirilen bir işlem uzun vadede başınıza işler açabilir. Sahip olduğunuz IP adresi üzerinden gerçekleştirilen eylemlerin kontrolunu de log sayesinde sağlayabilirsiniz. Bu sizi tüm olumsuzluklardan ve olası siber suç tehditlerinden korur. 
+
+Özetle log hizmeti firmanızın, kişisel veya kurumsal internet sitenizin tüm işlemlerini kontrol altına almanızı ve güvenliğinizi sağlayan bir yazılım hizmetidir. İşletmenizin başarısı için bu hizmetten en aktif şekilde yararlanmanız lehinize bir sonuç doğuracak, internetin karanlık yüzü ve sorunlarıyla karşılaşmadan işlerinizi kolayca yürütebileceksiniz.

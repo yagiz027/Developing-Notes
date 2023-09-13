@@ -1,0 +1,4 @@
+HTTP Nedir?
+	-İnternette sunucular ve son kullanıcılar arasında bilgilerin nasıl aktarılacağına dair kuralları ve yöntemleri düzenleyen sistemdir. 
+	-İnternet kullanırken web sitesine bağlanmak için adres çubuğuna site ismi girildiğinde başına http yazmasanız bile sistem otomatik olarak site isminin önüne 	 	getirecektir. Çünkü protokoller gereği erişilmek istenilen alana http tarafından yöneltilen komut sayesinde bağlantı gerçekleştirilir.
+

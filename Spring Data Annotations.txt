@@ -1,0 +1,11 @@
+@Transactions==>
+	Transection kısaca birden fazla sql sorgusunun aynı anda işlem görmesine verilen isimdir.
+	
+	-Commit ve RollBack=>
+		Veritabanları ne kadar akıllı da olsa yapmış olduğumuz INSERT, UPDATE gibi işlemlerde bizden onay beklemektedir.
+	Burada veritabanı için yapmış oldğumuz işlemleri onaylamak amacıyla kullandığımız sözcük sql dilinde 'COMMIT'dir. 	Fakat yaptığımız işlemlerin geri alınmasını veritabanına kayıt edilmesini istemiyorsak o zaman 'ROLLBACK' sözcüğünü 	kullanarak işlemlerimizin geri alınmasını sağlarız.
+	Connection'ı veritabanına bağlanabildiğiniz bir otoban olarak düşünün. Bu otobandaki şeritlerin azaltılıp çoğaltılabileceğini düşünün. Biz bu şeritlere transaction diyoruz Bir şerit üzerinde birden fazla araç gidebilir ve sizin bu şerit üzerinde yapacağınız her türlü işlem o şeritteki bütün araçları etkileyecektir. Bir transaction içerisinde birden fazla sql sorguları olabileceği için, o transaction üzerinde yapılan bütün değişiklikler o transactiondaki bütün sorgular için geçerli olacaktır. 
+
+@Query==>
+	DAO class'ında JPARepository interface'nin sağladığı hazır SQL sorgu methodlarının yanında custom(özel) bir SQL sorgusu hazırlamak için kullanılan annotation'dır. JpaRepositories de SQL de yerel bir sorgu yazılabilmesi için nativeQuery özelliğinin true olması geremektedir.
+

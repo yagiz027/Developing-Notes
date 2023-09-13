@@ -1,0 +1,22 @@
+Spring Boot:
+
+Spring Framework + Embeded Servers (Gömülü Sunucalar) - XML Configurations = Spring Boot
+
+  Java proglama dilinde geliştirilen bir framework'tür. Java dilinde microservice yazılmasına olanak sağlar.
+Micro Service: Çalışan programın ana işlemi üzerindeki yük bölünerek ayrı ayrı işlemlerde çalışmasına ve bu sayede daha 
+performanslı servisler geliştirilebilmesine olanak tanıyan bir yazılım geliştirme mimarisidir.
+
+Spring boot kullanarak daha az veritabanı kodu yazarak daha az vakit kaybı ile daha hızlı geliştirme yapabilirsiniz. Servis uçları için REST kullanımı sunar ve güçlü bir REST yapılandırmasına sahiptir. Birçok yapılandırma otomatik olarak yapılmış durumdadır.
+
+Spring Boot'un çalışmasına olanak sağlayan temel 3 anotasyon:
+*@SpringBootApplication
+*@EnableAutoConfiguration
+*@ComponentScan
+
+@SpringBootApplication=> Bu annnotation @Configuration, EnableAutoConfiguration ve @ComponentScan annotaionlar'ını eş zamanlı olarak birlikte kullanıma sunar.Yani spring boot uygulamanızı çalıştırdığınızda otomatik olarak bulunduğunuz package içerisindeki componentler ve sub-package'ler taranacaktır. 
+
+Böylece onları Spring'in Application Context'ine kaydedecek ve @Autowired kullanarak bean'leri enjekte etmemize izin verecektir. 
+
+Annotation eklemeyi etkinleştirdek sonra uygulama içerisinde properties, setter ve constructor'lar üzerinde @Autowired annotation'ını kullanabiliriz;
+
+spring-boot-devtools=> bu özellik org.springframework.boot ile birlikte gelir. Pom xml configuration'a eklendiğinde çalışan bir web programı üzerinde kodda değişiklik yapıldığında programı durdurup yeniden başlatmaya gerek kalmadan yapılan değişiklik kaydedildiğinde otomatik olarak tüm uygulamayı yeniler ve yapılan değişiklikleri web sayfasına ekler.

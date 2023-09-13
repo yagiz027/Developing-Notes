@@ -1,0 +1,31 @@
+SOAP Architecture
+
+SOAP Nedir?
+	-SOAP: Simple Object Access Protocol (Basit nesne erişim protokolü) kısaltmasıdır. 
+	-SOAP, web servis oluşturmak için kullanılan web servis yöntemlerinden bir tanesidir. 
+	-SOAP, programlama dilinden bağımsız olarak web servis oluşturmak için kullanılan bir standarttır.
+	-SOAP, yapısı temel olarak aşağıdaki gibi 4 bölümden oluşur:
+		-> Envelope –  SOAP yapısının en üst (kök) elemanıdır ve zorunludur.
+		-> Header – Yetkilendirme ve SOAP ayarlarının yapılması için kullanılır. HTML’de bulunan head etiketine benzetebiliriz.
+		-> Body – SOAP yapısındaki en önemli bölümdür. Bu bölümde metotlarla ilgili bilgi veya metodun sonucuyla ilgili bilgi yer alır.
+		-> Fault – Herhangi bir hata oluşursa hata ile ilgili bilgiler (hata kodu, hata açıklaması) yer alır.
+
+	SOAP içindeki bu bölümler WSDL ile tanımlanır.
+	
+	WDSL Nedir?
+		-WSDL Web Services Description Language (Web Servisleri Tanımlama Dili) kısaltmasıdır.
+		-Web servislerinin kullanılabilmesi için web servis içindeki metot, parametre, web servis adresi vb. değerlerin bilinmesi gerekir.WSDL web servisini 			kullanabilmek için gerekli olan bilgileri tanımlayan bir standarttır.
+		-WSDL, XML biçiminde hazırlanır ve yapısı aşağıdaki gibidir:
+
+			<types> – Web servis tarafından kullanılan veri türlerini tanımlar.
+
+			<message> – Web servis işlevlerine ait parametre, dönüş tipi vb. bilgileri tanımlar.
+
+			<portType> – Web servis işlevlerini tanımlar.
+		
+			<binding> – Web servise ait protokol ve çıktı biçimini tanımlar.
+
+
+
+	
+	

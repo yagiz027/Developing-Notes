@@ -1,0 +1,5 @@
+TCP/IP: TCP/IP protokolü, bilgisayarlar arası veri iletişiminin kurallarını koyan bir iletişim protokolleri bütünüdür.
+FTP:  FTP (File Transfer Protocol), dosya iletim protokolüdür. 
+SMTP:SMTP (Simple Mail Transfer Protocol) ise e-posta iletmek için kullanılır.
+
+

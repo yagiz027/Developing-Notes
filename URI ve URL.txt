@@ -1,0 +1,6 @@
+URI ile URL arasındaki fark nedir?
+Her URI bir kaynağı işaret edemeyebilir, orjinal adının içinde bulunan ifade de olduğu gibi sadece tanımlayıcı olabilir.
+
+URI: Uniform Resource Identifier’in kısaltılmış hali olan URI, internet üzerinde bir kaynağın tam yerine işaret eden (resim veya belge) standart formata uygun bir karakter dizisidir. Kısaca bir URL’nin altında bulunan kaynağın tam yoluna işaret eder. Örneğin https://www.aramamotoru.com/uniform-resource-identifier-nedir-uri-nedir/ bir URI’dir.
+
+URL: Uniform Resource Locator’ın kısaltılmış hali olan URL, Türkçe haliyle Birörnek Kaynak Konumlayıcı veya Tekdüzen Kaynak Bulucu şeklinde karşımıza çıkabilir. Aslında gayet basit tanımlı olan URL, internet üzerinde kaynağın yerine işaret eden standart bir formata uygun karakter dizisidir. Örneğin https://indir.com/ bir URL’dir.

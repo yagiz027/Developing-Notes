@@ -1,0 +1,28 @@
+"::" Operatörü: Sırasıyla <ClassName,MethodName> olarak referans sağlar. The double colon olarak da bilinir. Bir method referans operatörüdür. Sınıfının yardımıyla doğrduan ona atıfta bulunarak bir yöntemi çağırmak için kullanılır. Lambda expression gibi kullanılır. Ancak Lambda expression dan tek farkı başvurulan fonksiyona bir delegate yani temsilci sağlamak yerine yönteme ada göre direkt olarak başvuru sağlanmasını sağlar.
+
+Java-8 ile birlikte gelen işlevsel arayüzler:
+-Consumer
+-BiConsumer
+-Supplier
+
+Supplier==> Bir getter method'a yapılan her referans bir Supplier'dır:
+Örn:
+
+public class MyClass {
+   private Integer count;
+
+   public Integer getCount() {
+     return this.count;
+   }
+}
+Supplier, Java 8'de java.util.function paketi altındaki, yapıyı temsil eden ve herhangi bir girdi almayan ancak bir çıktı döndüren işlevsel bir interface'dir.
+
+Consumer==>Java 8'de java.util.function paketi altındaki, yapıyı temsil eden ve bir girdi (input) alan ancak herhangi bir çıktı (output) üretmeyen işlevsel bir interface'dir.
+Consumer interface'nin iki farklı method'u vardır:
+accept()==> T tipinde tek bir bağımsız değişkeni kabul eden Single abstract method'dur.
+
+(Java 8) Lambda Expressions:
+	Java 8 ile birlikte gelen labmda ifadeleri interfaceleri implemente etmenin alternatif bir yoludur. Lambda ifadeleri fonksiyonel bir interface kavramıdır ve (->) ile gösterilir. Arrow operatörünün sol tarafında lambda ifadesinin parametre listesi sağ tarafında ise implementasyonu yer alır.
+	Fonksiyonel Interface: Özünde sadece bir abstract metod bulunduran interface lere denir.
+	Lambda ifadeler içinde tanımlanan local değişkenler sadece lambda bloğu içinde erişilebilirdir, yani lambda dışından erişilemez.
+Variable capture: Lambda ifadeler yaratıldıkları kod bloğu içinde tanımlanan local değişkenlere sınırlı olarak erişebilirler, sadece değerini kullanabilir yeni değer atayamazlar. Bu duruma variable capture ismi verilir.

@@ -1,0 +1,10 @@
+private Scroller addScroller(Component... children) {
+
+        Div container = new Div(children);
+        container.setWidthFull();
+
+        Scroller scroller = new Scroller(container);
+        scroller.setSizeFull();
+
+        return scroller;
+    }
