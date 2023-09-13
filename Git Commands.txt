@@ -28,7 +28,7 @@ git switch <branch_name> => Mevcut kullanılan branch'den farklı bir branch'e g
 
 git merge <branch_name> => Yapılan commitleri birleştirmeye yarayan komuttur. Eğer main'e farklı bir branch'i eklemek istiyorsak main branch'inde bulunmamız ve bu komutu kullanarak ekelemk istediğimiz <branch_name>'i girmemmiz gerekir. 
 
+Fast Forwarding (İleri Sarma Tekniği)=> Bu teknik main branch dışında farklı bir branch ile çalışırken main branch'de herhangi bir değişiklik yapılmaması anlamına gelemektedir. Örneğin siz farklı bir branch ile çalışırken, main branch'de çalışan bir geliştici sizin diğer branch'de silmiş olduğunuz bir dosya üzerinde değişiklikler yaptı ve commit etti.
+Böyle bir durumda merge işlemi gerçekleştiğinde conflict yani çakışma dediğimiz durum gerçekleşmiş olur. İşte bu durumun önüne geçebilmek için fast forwarding tekniği kullanılır.
 
-
-
-
+Merge Conflict => 
