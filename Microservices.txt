@@ -1,30 +1,64 @@
-Software Load Balancer(Yazılım yük dengeliyici)=> 
-	 Yük dengeleme, gelen ağ trafiğini bir sunucu grubu veya sunucu havuzu olarak adlandırılan sunucular arasında paylaştırma işlemidir. Paylaştırma işlemi eşit 	olabileceği gibi belli bir kurala göre gerçekleştirilebilir. Yük dengeleme işlemi ile web uygulaması, web sitesi, veri tabanı vb. hizmetlerin performans ve 	güvenirliliği arttırılır. Hem uygulama, hemde veritabanı sunucuları arası dengeleme işlemini gerçekleştiren sistemler “load balancer” olarak adlandırılır. Load 	balancer’lar ile HTTP, HTTPS, TCP ve UDP olmak üzere 4 temel trafik türü için dengeleme kuralları oluşturulabilmektedir.
+Microservice nedir ? 
+	Adından da anlaşılacağı gibi,microserviceler temelde bir yazılım uygulamasında belirli özellik yada fonksiyonu sağlayan, tek bir amaca hizmet eden, birbirinden bağımsız yazılım servislerdir. 
 
-	 Yük dengeleyici, sunucuya gelen istemci isteklerini hız ve kapasite bakımından en iyi performansı sağlayacak şekilde sunuculara yönlendirip trafiğin ana 	sunucuda yoğunlaşmasını engelleyecek şekilde müdahale eden bir trafik polisi gibi düşünülebilir.Bir sunucunun kapanması durumunda , yük dengeleyici trafiği 	çevrimiçi sunuculara yönlendirir. Sunucu grubuna yeni bir sunucu eklenmesi durumunda, yük dengeleyici otomatik olarak yeni sunucuya istek gönderir. Bu sistemde 	çalışan bir yük dengeleyicinin görevleri aşağıdaki gibidir:
-	- İstemci isteklerini veya ağ trafiğini birden fazla sunucuya verimli bir şekilde dağıtmak
-	- Sadece aktif olan sunuculara istek göndererek güvenlik ve verimliliğin arttırılması
-	- Sunucu ekleme ve çıkarma esnekliği sunmak
+	Bir diğer tanım olarak ise tek başına sorumluluğu olan ve tek iş yapan sadece o işe ait işleri yürüten modüler projelerdir.
 
-	Load Balancing Çalışma Prensibi=>
-	  Load balancer’lar istekleri sunuculara iletmek için iki aşamadan oluşan bir prensip uygular. İlk olarak seçilebilecek sunucuların isteklere uygun şekilde 	yanıt verebileceği teyit edilir. Devamında cevap verebilecek sunucular arasından seçim yapmak için belirlenen kural uygulanarak iletim gerçekleştirilir.
+	Microserviceler'in kullanılmasının sebepleri: 
+		1) Scalibilty (Ölçeklenebilirlik)
+		2) Flexiblity (Esneklik)
+		3) CI (Continuous Integration)
+		4) CD (Continuous Delivery)
+		5) Teknoloji Çeşitliliği
 
-	Uygunluk Kontrolleri=>
-	  Load balancing uygulanan sistemlerde ağ trafiği güvenlik ve performans açısından sadece sağlıklı sunuculara iletilir. Bu nedenle sunucu seçiminde bir kontrol 	yapılır, kontrolden geçemeyen sunucu havuzdan kaldırılır ve kontrole cevap verene kadar bu sunucuya trafik verilmez.
+	Scalibilty (Ölçeklenebilirlik) nedir türleri nelerdir?
+		Ölçeklenebilir kelimesi, bir sistemin veya yapının, mevcut koşullara uygun olarak büyütülebilir ve küçültülebilir olması anlamına gelir. 
 
+		İki tip ölçekleme vardır:
+			- Horizontal Scalibilty (Yatayda Ölçekleme)
+			- Vertical Scalibilty	(Dikeyde Ölçekleme)
 
-Service Discovery=>
-	 Bir network'deki aygıtları ve service'leri otomatik olarak algılama işlemidir. Service discovery protocol (SDP), kaynakları tanımlayarak ağların algılanmasını  	sağlayan bir ağ standardıdır. Geleneksel olarak service discovery, bluetooth özellikli bir yazıcı veya sunucu gibi uyumlu kaynaklar sunulan kullanıcıların 	configuration çabalarını azaltmaya yardımcı olur.
+			Horizontal Scalibilty:
+				- Uygulamayı çalıştıran sanal veya fiziksel makine sayısının arttırılması işlemine yatayda ölçekleme denir. 
 
-	Service Discovery, bir ağı otomatik olarak bulma yeteneğine sahiptir, böylece uzun bir yapılandırma kurulum sürecine gerek kalmaz.	
+			Vertical Scalibilty:  
+				- Uygulamamızın üzerinde çalıştığı server'a daha fazla kaynak ekleme (cpu,ram,disk vb..) işlemine dikeyde ölçekleme denir.
 
-	İki farklı service discovery vardır:
-	-Server-side discovery
-	-Client-side discovery
+		Microservice'ler ise ölçeklenebilmeyi otomatik bir hale getirmektedir. Örneğin bir sayfanızın olduğunu ve microservice içerisindeki bir service'nizin kullanıcılardan gelen dakikada 1000 request'e cevap verebildiğini varsayalım.
+		Bu durumda dakikada gelen istek sayısı 1000 request'i aştığında, microservice mimarisi sayesinde ilgili service'in Kubarnates, Docker,	 Rancher gibi teknolojiler kullanarak sanalda bir instance'ı oluşturulur. 
+		Böylece uygulamanın dakika da cevap verebildiği request sayısı arttırılarak ölçeklenebilirlik kapsamında bize avantaj sağlar.
 
+	Flexiblity (Esneklik) nedir?
+		Yazılım anlamında esneklik kullanım alanlarına göre birden çok manaya gelebilmektedir. Ancak bir sistemin bütün olarak esnekliği denildiğinde, o sistemin gelecekteki ve şimdiki ihtiyaçları karşılayabilme kabiliyeti olarak tanımlayabiliriz.
 
-API Gateway=>
-	 API Gateway, istemcilerle backend sunucuları / mikro servisler arasında duran bir API yönetim aracıdır.
-	 API Gateway API isteklerini alarak çeşitli kurallara göre uygun servislere yönlendiren bir ters vekil sunucusu (reverse proxy) olarak çalışır. API Gateway 	istek sınırlandırma, istatistik, kimlik doğrulama vs. çeşitli sık kullanılan işlevleri üzerine alarak asıl API sunucularınızın önünde bir üst katman oluşturur.
+		Örneğin geliştirime sırasında kod'da karşılaşılan bir hata sonucunda uygulamanızın fonksiyonlarından biri çalışamaz hale geldi. 
+		Böyle bir durumda tüm uygulamanın hata vererek çalışamaz hale gelmesi sizin flexiblity anlamında negatif bir yaklaşım izlediğinizi gösterir. 
+		Microservice mimarisi sayesinde ise hata olan ilgili kodun veya method'un çalışamaz duruma gelmesi halinde bütün projedeki yalnızca tek bir service
+		çalışamaz duruma gelmektedir. Bu durumda ise kullanıcıların uygulamayı kullanmaya devam etmesinin önüne herhangi bir engel çıkmamış olur. 
 
-	 API gateway’ler istemcilerden gelen API çağrılarını alıp, kendi üzerinde veya arkadaki mikro servis mimarisi içinde çeşitli filtreler ve/veya işlemlerden 	geçirip son olarak da doğru endpointlere ulaşmasını sağlar.
+	CI/CD Nedir ?
+  		 CI/CD uygulama geliştirme aşamalarına otomasyonu dahil ederek uygulamarı müşterilere sıklıkla sunmaya yönelik bir yöntemdir.
+		
+		 CI/CD'ye atfedilen ana kavramlar Continuous Integration (sürekli entegrasyon), Continuous Delivery (sürekli teslimat) ve Continuous Deployment (sürekli dağıtım)'dır.
+		Başarılı bir CI, bir uygulamada yapılan yeni kod değişikliklerinin düzenli olarak oluşturulduğu, test edildiği ve ortak bir repo'da birleştirildiği (merge) anlamına gelir.
+		Bu gelişmekte olan bir uygulamanın birbiriyle çatışabilecek (Conflict) çok sayıda dalının aynı anda bulunmaması sorununa ir çözümdür.
+
+		 CD (Continuous Delivery) ise genellikle geliştiricinin bir uygulamada yaptığı değişikliklerin otomatik olarak hata testine tabi tutulduğu ve bir repository'e 
+		(GitHub veya konteyner kayıt defteri gibi) yüklendiği ve burada operasyon ekibi tarafından canlı bir üretim ortamına dağıtılabileceği anlamına gelir.
+		Bu developer ve iş ekipleri arasındaki poor visibilty (görme zorluğu) ve iletişim sorununa bir çözüm sağlar. Yani kısacası Continuous Delivery'nin genel olarak
+		amacı geliştirmiş olan yeni kodun deploy edilmesi için harcanan çabayı minimum'a indirgemektir. 
+
+		 Continuous Deployment ise developer'ın yaptığı değişikliklerin ve geliştirdiği yeni özelliklerin repository'den müşterilerin kullanabileceği production'a (üretime) 
+		otomatik olarak yayınlanması anlamına gelmektedir. Uygulamanın deploy edilme sürecini yavaşlatan manuel işlemlerle operasyon ekiplerinin overloading (aşırı yüklenme)
+		sorununu gidererek, pipeline üzerindeki henüz deploy edilmemiş yeni özellikleri otomatik olarak deploy ederek müşterilerin kullanımına sunar. 
+
+	Microservice Mimarisinin CI/CD Süreçlerine katkısı:
+		Her bir service kendisiyle ilgili olan bir domain problemine odaklı olarak geliştirildiği için bir service'de hata olduğunda diğer service'ler bundan etkilenmeden çalışmaya devam edebiliyor.
+		Bir bug tespit edildiğinde tüm yapıyı yeniden yayınlamaya gerek kalmadan sadece ilgili service'in yayınlanması mümkün olabiliyor.
+		Microservice mimarisi sayesinde her service'in farklı bir codebase yapısı ve ekiplerinin olması developer'lar açısından daha rahat bir geliştirme ortamı sağlıyor. Böylece developer'lar açısıından
+		okunabilirlik ve müdahalesi daha kolay sistemler ortaya çıkmış oluyor. Bu da yazılım ekibinin üzerindeki operasyonel iş yükünü hafiflettiği için yazılım süreçleri daha hızlı bir şekilde ilerleyebiliyor.
+
+	Teknoloji Çeşitliliği:
+		Büyük çaplı uygulamalar geliştirirken karşımıza çıkan farklı sorunları birden fazla teknoloji altyapısıyla veya farklı yazılım dilleriyle çözmemiz gerekebilir.
+		Örneğin java'da karışmıza çıkan bir sorunun çözümünün, python ile yapıldığında daha kolay ve daha optimize olması durumunda python ile ilgili eklentileri ve teknolojik 
+		altyapıları projemize eklememiz gerekebilir. Monolit uygulamar bir bütün olarak ele alındığı için bu tip çeşitliliklerin sayısı arttığı zaman proje çok karmaşık bir hal alabilir. 
+		Ancak microservice mimarisi sayesinde birbirinden bağımsız olarak geliştirilen service'ler sayesinde ilgili sorun gerektiğinde farklı teknolojiler kullanılarak çözülüp deploy edilebilir.
