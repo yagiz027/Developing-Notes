@@ -1,0 +1,13 @@
+Apache Cassandra büyük miktardaki verileri nested key-value pair ile içerisinde unstructed verileri barındırabilen
+NoSQL bir veritabanı'dır. 
+
+Cassandra Data Model=> 
+    Cluster:
+        Cassandra veritabanı birlikte çalışan birkaç makineye dağıtılmıştır. En dıştaki container, cluster (küme) olarak bilinir.
+        
+    Keyspace:
+        Cassandra'daki veriler için en dıştaki kapsayıcıdır. 
+
+    Replication Factor:
+        Arıza yönetimi için her düğüm bir kopya içerir ve bir arıza durumunda kopya sorumluluğu üstlenir.
+
