@@ -1,3 +1,10 @@
 Maven:
-	Genellikle java platformunda yer alan komutların derlenmesi sırasında kullanılan otomasyon ve inşaa aracıdır. Java programlama dili le uygulama geliştirirken çeşitli kütüphaneler geliştirmek isteyebilirsiniz. Her kütüphane için gerekli olan JAR dosyalarını indirmek ve projeye uygun olarak dahil etmek (classpath) gerekmektedir.Ancak sadece projeye projeye kütüphanelerin indirilmesi ve projeye dahil edilmesi yetmeyecektir. Ayrıca her yeni güncelleme sonrası güncel dosyaların takip edilmesi gerekecektir. Maven proje dosyasına eklenen bağımlılıklar ile kolay bir şekilde indirmeyi ve projeye yerliştirmeyi sağlar. Kullanılan kütüphaneler proje dosyasında yer aldığından taşınabilirlik sağlanmış olur. Sunmuş olduğu dizin yapısı sayesinde diğer geliştiricilerin projeyi takibini kolaylaştırır. 
+	Genellikle java platformunda yer alan komutların derlenmesi sırasında kullanılan otomasyon ve inşaa aracıdır. 
+	Java programlama dili le uygulama geliştirirken çeşitli kütüphaneler geliştirmek isteyebilirsiniz. 
+	Her kütüphane için gerekli olan JAR dosyalarını indirmek ve projeye uygun olarak dahil etmek (classpath) gerekmektedir.
+	Ancak sadece projeye projeye kütüphanelerin indirilmesi ve projeye dahil edilmesi yetmeyecektir.
+	Ayrıca her yeni güncelleme sonrası güncel dosyaların takip edilmesi gerekecektir. 
+	Maven proje dosyasına eklenen bağımlılıklar ile kolay bir şekilde indirmeyi ve projeye yerliştirmeyi sağlar. 
+	Kullanılan kütüphaneler proje dosyasında yer aldığından taşınabilirlik sağlanmış olur. 
+	Sunmuş olduğu dizin yapısı sayesinde diğer geliştiricilerin projeyi takibini kolaylaştırır. 
 

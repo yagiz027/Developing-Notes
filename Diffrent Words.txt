@@ -63,6 +63,9 @@ statements=> ifadeler
 principal=> sorumlu, müdür
 interpretation=> tercüme etmek, yorumlamak
 credentials => Kimlik Bilgileri
+arranges => düzenler 
+acronym => kısaltma , baş harflerden oluşan kısaltmalara verilen isim
+
 
 
 

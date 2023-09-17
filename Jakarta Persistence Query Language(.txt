@@ -1,6 +1,8 @@
 Jakarta Persistence Query Language(JPQL)
 
-Eski adıyla Java Persistence Query Language java programcıları için SQL sorgu dilinden esinlenerek tasarlanmış, Jakarta persistence API belirteminin bir parçası olarak, platform ağımsız bir nesne yönelimli sorgulama dilidir. Bu sorgu dili temeldeki veri deponuzdan bağımsız olarak çalışabilen taşınabilen veritabanı sorguları yazmanızı sağlar. 
+Eski adıyla Java Persistence Query Language java programcıları için SQL sorgu dilinden esinlenerek tasarlanmış, 
+Jakarta persistence API belirteminin bir parçası olarak, platform bağımsız bir nesne yönelimli sorgulama dilidir.
+Bu sorgu dili temeldeki veri deponuzdan bağımsız olarak çalışabilen taşınabilen veritabanı sorguları yazmanızı sağlar. 
 
 Jakarta Persistence API (javax.persistence) package==> Kurumsal java uygulamarında ilişkisel verilerin yönetimini açıklayan kütüphanedir.
 
