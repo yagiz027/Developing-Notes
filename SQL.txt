@@ -201,11 +201,95 @@ UNION işleci, varsayılan olarak yalnızca farklı değerleri seçer. Yinelenen
 	UNION ALL
 	SELECT column_name(s) FROM table2;
 
+SQL HAVING Clause=> 
+	SQL HAVING clause WHERE clause'a benzer ancak ondan tek farkı HAVIN clause, tekil kayıtlar yerine gruplandırılmış kayıtları
+	üzerinde kullanılır. Bu kayıtlar GROUP BY clause'ı ile gruplanır, yani HAVING clause'ı her zaman GROUP BY clause'ını takip 
+	etmek zorundadır. 
+
+	Ayrıca HAVING clause, COUNT(),SUM(), AVG() gibi toplama işlevlerinde de kullanılabilir. Ancak WHERE clause bunlarla birlikte 
+	kullanılamaz. 
+
+	SELECT column1,
+		   column2, 
+		   aggregate_function(column)
+	FROM table_name
+	GROUP BY column1, column2
+	HAVING condition
+
+	HAVING'i ORDER BY ile Kullanmak:
+		ORDER BY clause'ı select sorgusunun sonuçlarını belirli bir sütunun, numara veya alfabetik değerine göre sıralamasına olanak tanır.
+		Eğer HAVING clause'ı order by ile birlikte kullanırsak filtrelenen grupları istenilen sıraya göre sıralayabiliriz.
+	
+	SELECT NAME, 
+       	   AGE, 
+       	   SUM(SALARY) AS TOTAL_SALARY 
+	FROM CUSTOMERS
+	GROUP BY NAME, AGE
+	HAVING TOTAL_SALARY >= 3000
+	ORDER BY TOTAL_SALARY DESC
+
+	HAVING clause'ı COUNT() ile birlikte kullanmak:
+		HAVING clause oluşturulan grupların içerdiği row (kayıt) sayısına göre filtreleme yapmak için COUNT() fonksiyonu ile 
+		birlikte kullanılabilir. 
+	
+	SELECT 
+		AGE, 
+		COUNT(AGE)
+	FROM CUSTOMERS 
+	GROUP BY AGE 
+	HAVING COUNT(AGE)>=2
+
+	HAVING clause'ı AVG() fonksiyonu ile kullanmak :
+		HAVING clause aynı zamanda verilenen sütunun ortlamasını veren AVG() fonksiyonu 
+		ile birlikte filtreleme yapmak için de kullanılabilir. 
+
+	SELECT 
+		ADDRESS, 
+		AVG(SALARY) as AVG_SALARY 
+	FROM CUSTOMERS 
+	GROUP BY ADDRESS
+	HAVING AVG(SALARY) > 5240;
+
+	HAVING clause'ı MAX() fonksiyonu ile kullanmak: 
+		Grupları belirtilen bir sütunun maksimum değerine göre filtrelemek için 
+		HAVING yan tümcesini MAX() işleviyle birlikte kullanabiliriz.
+
+	SELECT 
+		CITY,
+		MAX(SALARY) AS MAX_SALARY 
+	FROM CUSTOMERS 
+	GROUP BY CITY 
+	HAVING MAX_SALARY >= 5000 
+
+	GROUP BY CLAUSE:
+		- SQL GROUP BY clause, aynı verileri gruplar halinde düzenlemek için SELECT clause ile birlikte kullanılır. 
+		- Bir SEELCT clause'da her WHERE clause bulunabilmektedir. Ancak ORDER BY veya HAVING clause var ise GROUP BY 
+		- clause'ı önce yazılmak zorundadır. 
+		- Bir tablodaki kayıtların belirli sütunlara göre gruplandırılmasındaki temel amaç, bu gruplar üzerinde hesaplamalar yapmaktır.
+		- Yani, GROUP BY clause'ı SUM(), COUNT(), AVG(), MAX() ya da MIN() gibi fonksiyonlarla birlikte kullanılabilir. 
+
+		Örneğin SALES_DATA adında ve YEAR, PRODUCT ve SALES sütunlarını içeren satış verilerini tutan bir tablonuz var. Bir yıldaki toplam 
+		satışları hesaplamak için GROUP BY deyimi kullanılarak bu tablodaki kayıtlar yıl bazında gruplandırılabilir ve SUM() fonksiyonu
+		kullanılarak her gruptaki satışların toplamı hesaplanır.
+
+		SYNTAX:
+
+		SELECT column_name(s)
+		FROM table_name
+		GROUP BY column_name(s);
+
+	SELECT INTO STATEMENT:
+		- SQL SELECT INTO Deyimi yeni bir tablo oluşturur ve mevcut bir tablodaki verileri yeni oluşturulan tabloya ekler.
+		- Yeni tablo, SELECT deyimindeki sütunların yapısına göre otomatik olarak oluşturulur ve aynı veritabanında veya farklı bir veritabanında oluşturulabilir.
+		- Ancak, SELECT INTO ifadesinin orijinal tablonun herhangi bir indeksini, kısıtlamasını veya diğer özelliklerini korumadığını ve yeni tablonun varsayılan
+		- olarak tanımlanmış herhangi bir birincil anahtara veya yabancı anahtara sahip olmayacağını unutmamak önemlidir.
+		- Bu nedenle gerekirse bu özellikleri yeni tabloya manuel olarak eklemeniz gerekebilir.
+		* MySQL, SELECT ... INTO TABLE Sybase SQL uzantısını desteklemez; yani MySQL'de, bir tablodan diğerine veri eklemek için
+		SELECT ... INTO ifadesini kullanamazsınız. Bunun yerine INSERT INTO ... SELECT ifadesini veya CREATE TABLE ... SELECT 
+		ifadesini kullanabiliriz.
 
 
-
-
-
+		
 
 
 
